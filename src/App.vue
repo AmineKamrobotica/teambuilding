@@ -24,7 +24,5 @@ export default {
 };
 </script>
 <style>
-*{
-  text-transform: lowercase;
-}
+
 </style>

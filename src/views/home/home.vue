@@ -10,11 +10,23 @@
         </p>
       </v-col>
       <v-col md="4">
-        <v-img src="../../assets/home.png" />
+        <v-img src="../../assets/images/home.png" />
       </v-col>
     </v-row>
+    <build-passed />
+    <Carousel style="margin-top:30px" />
   </v-container>
 </template>
-<style>
+<style scoped>
 @import "./home.css";
 </style>
+<script>
+import BuildPassed from "../buildingPassed/buildPassed.vue";
+import Carousel from "../carousel/Carousel.vue";
+export default {
+  components: {
+    BuildPassed,
+    Carousel,
+  },
+};
+</script>

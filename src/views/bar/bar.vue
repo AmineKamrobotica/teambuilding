@@ -4,7 +4,7 @@
       <v-span class="logo">proxyfy</v-span>
       <v-spacer></v-spacer>
 
-      <v-span class="link" v-for="link in links" :key="link">{{ link }}</v-span>
+      <span class="link" v-for="link in links" :key="link">{{ link }}</span>
     </v-container>
   </v-app-bar>
 </template>
@@ -22,13 +22,32 @@ export default {
   margin-right: 30px;
   font-size: 18px;
 }
-.link:hover{
-    color: #2c699a;
+.link:hover {
+  color: #2c699a;
 }
 .logo {
   font-size: 28px;
   margin-bottom: 9px;
   font-weight: bold;
   color: #0db39e;
+}
+.logo:hover {
+  cursor: pointer;
+}
+
+.link:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  background: #2c699a;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.link:hover:after {
+  width: 100%;
+  left: 0;
 }
 </style>
