@@ -27,6 +27,7 @@
         <v-text-field
           outlined
           clearable
+          :error-messages="emailErrors"
           v-model="email"
           label="E-mail"
           required

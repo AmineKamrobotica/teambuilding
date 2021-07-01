@@ -3,7 +3,7 @@
     style="    display: flex;
     margin-bottom: 15px;"
   >
-    <v-btn @click="fileIput" color="success" >upload Image</v-btn>
+    <v-btn @click="fileIput" color="#54478c" class="organizeBtn">upload Image</v-btn>
     <input
       type="file"
       accept="image/png, image/jpeg"
@@ -27,11 +27,16 @@ export default {
   methods: {
     fileIput() {
       this.$refs.fileInput.click();
-      
     },
-    chnge(){
-      console.log("amine")
-    }
+    chnge() {
+      console.log("amine");
+    },
   },
 };
 </script>
+<style scoped>
+.organizeBtn{
+  color: white;
+  text-transform: capitalize;
+}
+</style>

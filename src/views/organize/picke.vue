@@ -21,6 +21,7 @@
         ></v-text-field>
       </template>
       <v-date-picker
+        color="#29628F"
         v-model="date"
         min="1950-01-01"
         @change="save"

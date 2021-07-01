@@ -24,9 +24,11 @@
         ></v-text-field>
       </template>
       <v-time-picker
+        color="#29628F"
         v-if="menu"
         v-model="time"
         full-width
+        format="24hr"
         @click:minute="$refs.menu.save(time)"
       ></v-time-picker>
     </v-menu>
