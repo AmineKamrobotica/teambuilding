@@ -4,8 +4,15 @@
     position: relative;
 
 }
-.btnsOrganize span{
+
+.btnsOrganize span {
     color: white;
     text-transform: capitalize;
     font-size: 20px;
+}
+
+.hOrganize {
+    
+    text-align: center;
+    margin-bottom: 70px;
 }

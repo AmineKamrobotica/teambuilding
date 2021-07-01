@@ -1,7 +1,7 @@
 <template>
   <v-container>
+    <h1 class="hOrganize">Organize</h1>
     <div class="contOrganize text-center">
-      <h1>Take the initiative and organize</h1>
       <form>
         <v-text-field
           v-model="title"
@@ -23,22 +23,34 @@
           name="input-7-4"
           label="description"
         ></v-textarea>
-        <picke-date-time date="date" />
+        <v-row>
+          <v-col md="6" sm="12"><picke-date-time @clicked="logChange"/></v-col>
+          <v-col md="6" sm="12"><picke-time></picke-time></v-col>
+        </v-row>
       </form>
-      <v-btn color="#2c699a" class="btnsOrganize" block x-large>Submit</v-btn>
+      <v-btn
+        color="#2c699a"
+        class="btnsOrganize"
+        block
+        x-large
+        @click="logChange"
+        >Submit</v-btn
+      >
     </div>
   </v-container>
 </template>
 <script>
 import InputFile from "./inputFile.vue";
 import PickeDateTime from "./picke.vue";
+import PickeTime from "./pickeTime.vue";
 export default {
-  
   components: {
     InputFile,
     PickeDateTime,
+    PickeTime,
   },
   data: () => ({
+    date: "",
     title: "",
     description: "",
     location: "",
@@ -46,7 +58,12 @@ export default {
 
   computed: {},
 
-  methods: {},
+  methods: {
+    logChange(value) {
+      this.date = value;
+      console.log(this.date);
+    },
+  },
 };
 </script>
 <style scoped>

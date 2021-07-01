@@ -3,12 +3,13 @@
     style="    display: flex;
     margin-bottom: 15px;"
   >
-    <v-btn @click="fileIput" color="success">upload Image</v-btn>
+    <v-btn @click="fileIput" color="success" >upload Image</v-btn>
     <input
       type="file"
       accept="image/png, image/jpeg"
       ref="fileInput"
       style="display:none"
+      @change="chnge"
     />
   </div>
 </template>
@@ -26,7 +27,11 @@ export default {
   methods: {
     fileIput() {
       this.$refs.fileInput.click();
+      
     },
+    chnge(){
+      console.log("amine")
+    }
   },
 };
 </script>

@@ -23,6 +23,7 @@
             name="input-10-2"
             label="Password"
             hint="At least 8 characters"
+            value=""
             class="input-group--focused"
             @click:append="show = !show"
           ></v-text-field>
