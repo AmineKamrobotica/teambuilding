@@ -1,8 +1,26 @@
 .intro {
-    font-size: 50px;
-    font-weight: bold;
-    line-height: 0.9;
-  }
-  .all {
-    margin-top: 90px;
-  }
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 0.9;
+}
+
+.all {
+  margin-top: 90px;
+}
+
+.divbtns {
+  width: 26%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns {
+  text-transform: capitalize;
+
+
+}
+
+.linkOrganize {
+  text-decoration: none;
+  color: #2c699a
+}

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="try">
     <v-row class="all">
       <v-col md="8">
         <p class="intro">
@@ -8,6 +8,19 @@
         <p style="font-size: 21px;">
           Join the official group of proxym's Team Building,
         </p>
+        <div class="divbtns">
+          <v-btn outlined color="#2c699a" class="btns"
+            ><router-link to="/organize" class="linkOrganize">Organize</router-link></v-btn
+          >
+
+          <v-btn
+            color="#2c699a"
+            elevation="0"
+            style="color: white;"
+            class="btns"
+            >explore</v-btn
+          >
+        </div>
       </v-col>
       <v-col md="4">
         <v-img src="../../assets/images/home.png" />

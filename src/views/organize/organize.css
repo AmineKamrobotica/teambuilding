@@ -1,0 +1,11 @@
+.contOrganize {
+    width: 50%;
+    margin: auto;
+    position: relative;
+
+}
+.btnsOrganize span{
+    color: white;
+    text-transform: capitalize;
+    font-size: 20px;
+}

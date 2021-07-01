@@ -22,26 +22,20 @@
 export default {
   data() {
     return {
-      titles: ["tastour", "tbarka", "janoub", "hawaria"],
-      descs: [
-        "Harga deals with a set of social isssues,namely cladesti migration, focusing the camera on",
-        "Aziza lives completely disconnected from the pace and values of her family. She inherited her father’s passion for alcohol and is involved without restraint in her rock band",
-        "Ibrahim discovers that his son Marwan was active in a militant Islamist cell. He seeks to understand the reasons that drove him to extremism and to get to know the people who brainwashed him",
-
-        "Dr. Fares pursues the reality of the nightmares of his mother who passed away a year ago, prompting him to reopen the file of her death",
-      ],
+      titles: ["1st meet", "2nd meet", "3rd meet", "4th meet"],
+      descs: ["", "", "", ""],
       items: [
         {
-          src: require("./images/image1.webp"),
+          src: require("./images/image2.jpg"),
         },
         {
-          src: require("./images/image4.webp"),
+          src: require("./images/image3.jpg"),
         },
         {
-          src: require("./images/image3.webp"),
+          src: require("./images/image5.jpg"),
         },
         {
-          src: require("./images/image2.webp"),
+          src: require("./images/image6.jpg"),
         },
       ],
     };
