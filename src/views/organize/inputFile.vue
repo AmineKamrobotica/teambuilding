@@ -54,6 +54,8 @@ export default {
         "Avatar size should be less than 2 MB!",
     ],
     images: [],
+    files: [],
+    filesImages: [],
   }),
   methods: {
     fileIput() {
