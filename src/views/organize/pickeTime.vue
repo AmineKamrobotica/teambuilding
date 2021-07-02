@@ -30,6 +30,7 @@
         full-width
         format="24hr"
         @click:minute="$refs.menu.save(time)"
+        @change="saveTime"
       ></v-time-picker>
     </v-menu>
   </div>
@@ -42,5 +43,10 @@ export default {
       menu: false,
     };
   },
+  methods:{
+    saveTime(){
+      this.$emit("timechange",this.time)
+    }
+  }
 };
 </script>

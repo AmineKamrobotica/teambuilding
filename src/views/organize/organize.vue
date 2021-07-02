@@ -16,7 +16,7 @@
           outlined
         ></v-text-field>
 
-        <InputFile />
+        <InputFile @inputFile="images" />
         <v-textarea
           v-model="description"
           outlined
@@ -25,7 +25,7 @@
         ></v-textarea>
         <v-row>
           <v-col md="6" sm="12"><picke-date-time @clicked="logChange"/></v-col>
-          <v-col md="6" sm="12"><picke-time></picke-time></v-col>
+          <v-col md="6" sm="12"><picke-time @timechange="timeChange"/></v-col>
         </v-row>
       </form>
       <v-btn
@@ -51,6 +51,8 @@ export default {
   },
   data: () => ({
     date: "",
+    time: "",
+    image: [],
     title: "",
     description: "",
     location: "",
@@ -61,7 +63,15 @@ export default {
   methods: {
     logChange(value) {
       this.date = value;
-      console.log(this.date);
+      console.log("the date is " + this.date);
+    },
+    timeChange(value) {
+      this.time = value;
+      console.log("the time is " + this.time);
+    },
+    images(value) {
+      this.image = value;
+      console.log("images " + this.image);
     },
   },
 };
