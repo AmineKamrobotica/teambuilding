@@ -126,6 +126,32 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    submit() {
+      if (
+        this.lastName &&
+        this.name &&
+        this.email &&
+        this.password &&
+        this.confirmPassword &&
+        this.password === this.confirmPassword
+      ) {
+        axios
+          .post("http://localhost:5000/user/signup", {
+            name: this.name,
+            lastName: this.lastName,
+            email: this.email,
+            password: this.password,
+          })
+          .then(() => {
+            this.clear;
+            this.$router.push("/logIn");
+          });
+      } else {
+        console.log("something wrong!!!");
+      }
+    },
+    
+  },
 };
 </script>
