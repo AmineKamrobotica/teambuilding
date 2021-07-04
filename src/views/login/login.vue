@@ -15,6 +15,7 @@
           ></v-text-field>
 
           <v-text-field
+            v-model="password"
             outlined
             clearable
             :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
@@ -43,6 +44,7 @@
   </v-main>
 </template>
 <script>
+import axios from "axios";
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
 
@@ -67,7 +69,7 @@ export default {
     items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
     show: false,
-    password: "Password",
+    password: "",
     rules: {
       required: (value) => !!value || "Required.",
       min: (v) => v.length >= 8 || "Min 8 characters",
@@ -95,7 +97,18 @@ export default {
 
   methods: {
     submit() {
-      this.$v.$touch();
+      if (this.email && this.password) {
+        axios
+          .post("http://localhost:5000/user/login", {
+            email: this.email,
+            password: this.password,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+      } else {
+        console.log("something wrong!!!");
+      }
     },
   },
 };

@@ -78,7 +78,7 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
-
+import axios from "axios";
 export default {
   mixins: [validationMixin],
 
@@ -126,10 +126,6 @@ export default {
     },
   },
 
-  methods: {
-    submit() {
-      this.$v.$touch();
-    },
-  },
+  methods: {},
 };
 </script>
