@@ -151,7 +151,12 @@ export default {
         console.log("something wrong!!!");
       }
     },
-    
+    clear() {
+      (this.username = ""),
+        (this.phone = ""),
+        (this.email = ""),
+        (this.password = "");
+    },
   },
 };
 </script>
