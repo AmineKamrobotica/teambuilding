@@ -55,6 +55,8 @@ export default {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
     select: { required },
+    login: [],
+    profil: [],
     checkbox: {
       checked(val) {
         return val;
@@ -104,6 +106,7 @@ export default {
             password: this.password,
           })
           .then((res) => {
+            this.login = res.data.profil;
             console.log(res.data);
           });
       } else {
