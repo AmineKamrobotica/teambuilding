@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    
     <div class="cont text-center">
       <form>
         <v-row>
@@ -85,12 +86,6 @@ export default {
   validations: {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
-    select: { required },
-    checkbox: {
-      checked(val) {
-        return val;
-      },
-    },
   },
 
   data: () => ({
@@ -101,6 +96,7 @@ export default {
     show2: false,
     password: "",
     confirmPassword: "",
+    
     rules: {
       required: (value) => !!value || "Required.",
       min: (v) => v.length >= 8 || "Min 8 characters",
@@ -143,9 +139,14 @@ export default {
             email: this.email,
             password: this.password,
           })
-          .then(() => {
+          .then((res) => {
             this.clear;
-            this.$router.push("/logIn");
+            this.$router.push({
+              name: "Login",
+              params: {
+                success: res.data.message,
+              },
+            });
           });
       } else {
         console.log("something wrong!!!");

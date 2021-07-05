@@ -1,5 +1,17 @@
 <template>
   <v-main class="try">
+    <v-snackbar
+      transition="slide-x-transition"
+      :timeout="1000"
+      v-model="snackbar"
+      absolute
+      top
+      color="success"
+      outlined
+      right
+    >
+      {{ this.$route.params.success }}
+    </v-snackbar>
     <v-container>
       <div class="cont text-center">
         <form>
@@ -64,6 +76,7 @@ export default {
     checkbox: false,
     show: false,
     password: "",
+    snackbar: false,
     login: [],
     profil: [],
     rules: {
@@ -90,7 +103,11 @@ export default {
       return errors;
     },
   },
-
+  created() {
+    if (this.$route.params.success) {
+      this.snackbar = true;
+    }
+  },
   methods: {
     submit() {
       if (this.email && this.password) {
