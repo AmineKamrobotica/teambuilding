@@ -4,7 +4,7 @@
       <span class="logo"> proxyfy</span>
       <v-spacer></v-spacer>
 
-      <span style="display: flex;" v-for="link in links" :key="link"
+      <span style="display: flex;" v-for="(link,index) in links" :key="index"
         ><router-link class="link" :to="link.link">
           {{ link.name }}
         </router-link>

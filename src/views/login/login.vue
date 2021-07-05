@@ -54,14 +54,6 @@ export default {
   validations: {
     name: { required, maxLength: maxLength(10) },
     email: { required, email },
-    select: { required },
-    login: [],
-    profil: [],
-    checkbox: {
-      checked(val) {
-        return val;
-      },
-    },
   },
 
   data: () => ({
@@ -72,6 +64,8 @@ export default {
     checkbox: false,
     show: false,
     password: "",
+    login: [],
+    profil: [],
     rules: {
       required: (value) => !!value || "Required.",
       min: (v) => v.length >= 8 || "Min 8 characters",
