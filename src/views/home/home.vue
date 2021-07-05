@@ -10,7 +10,9 @@
         </p>
         <div class="divbtns">
           <v-btn outlined color="#2c699a" class="btns"
-            ><router-link to="/organize" class="linkOrganize">Organize</router-link></v-btn
+            ><router-link to="/organize" class="linkOrganize"
+              >Organize</router-link
+            ></v-btn
           >
 
           <v-btn
@@ -41,5 +43,6 @@ export default {
     BuildPassed,
     Carousel,
   },
+  methods: {},
 };
 </script>
