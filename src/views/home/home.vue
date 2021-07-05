@@ -1,5 +1,17 @@
 <template>
   <v-container class="try">
+    <v-snackbar
+      transition="slide-x-transition"
+      :timeout="1000"
+      v-model="snackbar"
+      absolute
+      top
+      color="success"
+      outlined
+      right
+    >
+      authentication successfully
+    </v-snackbar>
     <v-row class="all">
       <v-col md="8">
         <p class="intro">
@@ -42,6 +54,15 @@ export default {
   components: {
     BuildPassed,
     Carousel,
+  },
+  data: () => ({
+    snackbar: false,
+  }),
+  created() {
+    if (this.$route.params.userData) {
+      this.snackbar = true;
+      console.log(this.$store.state.token, this.$store.state.username);
+    }
   },
   methods: {},
 };

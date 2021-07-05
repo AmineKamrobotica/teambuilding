@@ -117,8 +117,10 @@ export default {
             password: this.password,
           })
           .then((res) => {
-            this.login = res.data.profil;
-            console.log(res.data);
+            this.$store.state.token = res.data.token;
+            this.$store.state.username =
+              res.data.user.name + " " + res.data.user.lastName;
+            this.$router.push({ name: "Home", params: { userData: res.data } });
           });
       } else {
         console.log("something wrong!!!");

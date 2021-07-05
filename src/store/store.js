@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    try: "hello storree",
+    token: "",
+    username: "",
   },
   mutations: {},
 });
-
