@@ -22,7 +22,9 @@
         </p>
         <div class="divbtns">
           <v-btn outlined color="#2c699a" class="btns"
-            ><router-link to="/organize" class="linkOrganize"
+            ><router-link
+              :to="this.$store.state.token ? '/organize' : '/login'"
+              class="linkOrganize"
               >Organize</router-link
             ></v-btn
           >
@@ -32,8 +34,14 @@
             elevation="0"
             style="color: white;"
             class="btns"
-            >explore</v-btn
           >
+            <router-link
+              to="/explore"
+              style="text-decoration: none; color: white"
+            >
+              explore
+            </router-link>
+          </v-btn>
         </div>
       </v-col>
       <v-col md="4">

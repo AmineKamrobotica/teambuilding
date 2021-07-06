@@ -87,25 +87,30 @@ export default {
       console.log("images " + this.files);
     },
     change() {
-      var formData = new FormData();
-      formData.append("title", this.title);
-      formData.append("location", this.location);
-      formData.append("description", this.description);
-      formData.append("date", this.date);
-      formData.append("time", this.time);
-      for (let i = 0; i < this.files.length; i++) {
-        formData.append("image", this.files[i]);
-      }
-      /* formData.append("image", this.files[0]);
+      if (this.$store.state.token) {
+        var formData = new FormData();
+        formData.append("title", this.title);
+        formData.append("location", this.location);
+        formData.append("description", this.description);
+        formData.append("date", this.date);
+        formData.append("time", this.time);
+        formData.append("owner", this.$store.state.username);
+        for (let i = 0; i < this.files.length; i++) {
+          formData.append("image", this.files[i]);
+        }
+        /* formData.append("image", this.files[0]);
       formData.append("image", this.files[1]); */
-      axios
-        .post("http://localhost:5000/building/postBuilding", formData)
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        axios
+          .post("http://localhost:5000/building/postBuilding", formData)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        this.$router.push("/login");
+      }
     },
   },
 };
