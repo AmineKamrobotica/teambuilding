@@ -3,6 +3,7 @@ const router = express.Router();
 const app = express();
 const addBuilding = require("../models/addBuilding");
 const multer = require("multer");
+const moment = require("moment");
 // const checkAuth = require("../middleware/check_auth");
 
 router.get("/", async (req, res) => {
@@ -24,7 +25,7 @@ router.get("/owner/:id", async (req, res) => {
 
 var storage = multer.diskStorage({
   destination: "../../teambuilding/upload",
-  filename: function (req, file, cb) {
+  filename: function(req, file, cb) {
     cb(null, file.originalname);
   },
 });
@@ -32,12 +33,16 @@ const upload = multer({ storage: storage }).array("image");
 
 router.post("/postBuilding", upload, async (req, res) => {
   console.log(req.file);
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
+  
   let addbuild = new addBuilding({
     title: req.body.title,
     location: req.body.location,
     description: req.body.description,
     date: req.body.date,
     time: req.body.time,
+    timeOfPublich: today.toDateString(),
   });
   if (req.files) {
     let path = [];

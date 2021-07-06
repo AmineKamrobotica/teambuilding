@@ -9,11 +9,10 @@ const buildingSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-   image: {
+  image: {
     type: Array,
     required: true,
-    
-  }, 
+  },
   description: {
     type: String,
     required: true,
@@ -21,12 +20,14 @@ const buildingSchema = new mongoose.Schema({
   date: {
     type: String,
     required: true,
-    
   },
   time: {
     type: String,
     required: true,
-    
+  },
+  timeOfPublich: {
+    type: String,
+    required: true,
   },
 });
 
