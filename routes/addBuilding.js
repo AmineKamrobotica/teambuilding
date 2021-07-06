@@ -34,15 +34,15 @@ const upload = multer({ storage: storage }).array("image");
 router.post("/postBuilding", upload, async (req, res) => {
   console.log(req.file);
   const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
-  
+  const today = moment(timeElapsed).format("dddd, MMMM Do YYYY, h:mm:ss a");
+
   let addbuild = new addBuilding({
     title: req.body.title,
     location: req.body.location,
     description: req.body.description,
     date: req.body.date,
     time: req.body.time,
-    timeOfPublich: today.toDateString(),
+    timeOfPublich: today,
   });
   if (req.files) {
     let path = [];
