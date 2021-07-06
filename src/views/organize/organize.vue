@@ -2,7 +2,7 @@
   <v-container>
     <h1 class="hOrganize">Organize</h1>
     <div class="contOrganize text-center">
-      <form>
+      <form method="POST" enctype="multipart/formdata">
         <v-text-field
           v-model="title"
           label="Title"
@@ -15,8 +15,24 @@
           single-line
           outlined
         ></v-text-field>
-
-        <InputFile @inputFile="images" />
+        <input-file @inputFile="images"></input-file>
+        <!-- <v-file-input
+          id="filesinput"
+          v-model="files"
+          placeholder="Upload your documents"
+          label="File input"
+          multiple
+          type="file"
+          prepend-icon="mdi-paperclip"
+          name="image"
+          @change="filesIput"
+        >
+          <template v-slot:selection="{ text }">
+            <v-chip small label color="primary">
+              {{ text }}
+            </v-chip>
+          </template>
+        </v-file-input> -->
         <v-textarea
           v-model="description"
           outlined
@@ -28,7 +44,7 @@
           <v-col md="6" sm="12"><picke-time @timechange="timeChange"/></v-col>
         </v-row>
       </form>
-      <v-btn color="#2c699a" class="btnsOrganize" block x-large @click="Change"
+      <v-btn color="#2c699a" class="btnsOrganize" block x-large @click="change"
         >Submit</v-btn
       >
     </div>
@@ -49,6 +65,7 @@ export default {
     date: "",
     time: "",
     image: [],
+    files: [],
     title: "",
     description: "",
     location: "",
@@ -66,19 +83,23 @@ export default {
       console.log("the time is " + this.time);
     },
     images(value) {
-      this.image.push(value);
-      console.log("images " + this.image);
+      this.files = value;
+      console.log("images " + this.files);
     },
-    Change() {
+    change() {
+      var formData = new FormData();
+      formData.append("title", this.title);
+      formData.append("location", this.location);
+      formData.append("description", this.description);
+      formData.append("date", this.date);
+      formData.append("time", this.time);
+      for (let i = 0; i < this.files.length; i++) {
+        formData.append("image", this.files[i]);
+      }
+      /* formData.append("image", this.files[0]);
+      formData.append("image", this.files[1]); */
       axios
-        .post("http://localhost:5000/building/postBuilding", {
-          title: this.title,
-          location: this.location,
-          description: this.description,
-          date: this.date,
-          time: this.time,
-          image: this.image,
-        })
+        .post("http://localhost:5000/building/postBuilding", formData)
         .then((res) => {
           console.log(res.data);
         })

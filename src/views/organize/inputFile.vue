@@ -22,22 +22,12 @@
 <script>
 export default {
   data: () => ({
-    rules: [
-      (value) =>
-        !value ||
-        value.size < 2000000 ||
-        "Avatar size should be less than 2 MB!",
-    ],
-    images: [],
     files: [],
-    filesImages: [],
+
   }),
   methods: {
-    fileIput() {
-      this.$refs.fileInput.click();
-    },
     chnge() {
-      console.log(this.files[0]);
+      console.log(this.files);
       this.$emit("inputFile", this.files);
     },
   },
