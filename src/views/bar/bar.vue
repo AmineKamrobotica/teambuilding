@@ -25,7 +25,7 @@
           >
             {{ link.name }}
           </router-link>
-          <router-link to="#" class="link">{{
+          <router-link to="#" class="linkUser">{{
             this.$store.state.username
           }}</router-link>
         </span>
