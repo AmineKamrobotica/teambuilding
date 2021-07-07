@@ -121,6 +121,10 @@ export default {
             this.$store.state.username =
               res.data.user.name + " " + res.data.user.lastName;
             this.$router.push({ name: "Home", params: { userData: res.data } });
+            //this.$store.state.userData = res.data.user;
+            localStorage.setItem(
+              "id",res.data.user._id
+            );
           });
       } else {
         console.log("something wrong!!!");

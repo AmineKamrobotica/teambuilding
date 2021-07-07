@@ -70,6 +70,8 @@ export default {
     if (this.$route.params.userData) {
       this.snackbar = true;
       console.log(this.$store.state.token, this.$store.state.username);
+      console.log(this.$store.state.userData._id);
+      console.log(localStorage.getItem("userProfil"));
     }
   },
   methods: {},

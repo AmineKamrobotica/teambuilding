@@ -11,13 +11,21 @@
 <script>
 import Bar from "./views/bar/bar";
 import Footer from "./views/footer/footer";
+import axios from "axios";
 export default {
   components: {
     Bar,
     Footer,
   },
   name: "App",
-
+  created() {
+    console.log("id" + localStorage.getItem("id"));
+    axios
+      .get("http://localhost:5000/user/" + localStorage.getItem("id"))
+      .then((res) => {
+        console.log(res.data);
+      });
+  },
   data: () => ({
     //
   }),
