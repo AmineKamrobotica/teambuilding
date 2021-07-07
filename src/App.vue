@@ -19,12 +19,15 @@ export default {
   },
   name: "App",
   created() {
-    console.log("id" + localStorage.getItem("id"));
-    axios
-      .get("http://localhost:5000/user/" + localStorage.getItem("id"))
-      .then((res) => {
-        console.log(res.data);
-      });
+    if (localStorage.getItem("id")) {
+      axios
+        .get("http://localhost:5000/user/" + localStorage.getItem("id"))
+        .then((res) => {
+          this.$store.state.token = res.data.token;
+          this.$store.state.username = res.data.name + " " + res.data.lastName;
+          console.log(res.data);
+        });
+    }
   },
   data: () => ({
     //

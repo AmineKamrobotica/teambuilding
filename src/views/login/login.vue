@@ -117,13 +117,14 @@ export default {
             password: this.password,
           })
           .then((res) => {
-            this.$store.state.token = res.data.token;
-            this.$store.state.username =
-              res.data.user.name + " " + res.data.user.lastName;
             this.$router.push({ name: "Home", params: { userData: res.data } });
             //this.$store.state.userData = res.data.user;
-            localStorage.setItem(
-              "id",res.data.user._id
+            localStorage.setItem("id", res.data.user._id);
+            axios.put(
+              "http://localhost:5000/user/token/" + localStorage.getItem("id"),
+              {
+                token: res.data.token,
+              }
             );
           });
       } else {

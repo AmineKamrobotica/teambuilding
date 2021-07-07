@@ -101,10 +101,9 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/token/:id", async (req, res) => {
   const user = await User.findByIdAndUpdate(req.params.id, {
-    name: req.body.name,
-    lastName: req.body.lastName,
+    token: req.body.token,
   });
 
   if (!user)
