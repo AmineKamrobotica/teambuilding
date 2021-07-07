@@ -20,24 +20,13 @@
 </template>
 <script>
 export default {
+  props: {
+    items: [],
+  },
   data() {
     return {
       titles: ["1st meet", "2nd meet", "3rd meet", "4th meet"],
       descs: ["", "", "", ""],
-      items: [
-        {
-          src: require("./images/image2.jpg"),
-        },
-        {
-          src: require("./images/image3.jpg"),
-        },
-        {
-          src: require("./images/image5.jpg"),
-        },
-        {
-          src: require("./images/image6.jpg"),
-        },
-      ],
     };
   },
 };

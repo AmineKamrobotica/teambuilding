@@ -49,7 +49,7 @@
       </v-col>
     </v-row>
     <build-passed />
-    <Carousel style="margin-top:30px" />
+    <Carousel :items="items" style="margin-top:30px" />
   </v-container>
 </template>
 <style scoped>
@@ -65,6 +65,20 @@ export default {
   },
   data: () => ({
     snackbar: false,
+    items: [
+      {
+        src: require("./images/image2.jpg"),
+      },
+      {
+        src: require("./images/image3.jpg"),
+      },
+      {
+        src: require("./images/image5.jpg"),
+      },
+      {
+        src: require("./images/image6.jpg"),
+      },
+    ],
   }),
   created() {
     if (this.$route.params.userData) {

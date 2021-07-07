@@ -19,14 +19,20 @@
     <v-divider></v-divider>
     <v-card-actions class="d-flex flex-no-wrap justify-space-between">
       <div>
-        <v-btn class="" color="green" text sll>
+        <v-btn class="" color="green" text small @click="explore(item)">
           explore
         </v-btn>
 
-        <v-btn class="" color="yellow" text small>
+        <v-btn
+          class=""
+          color="yellow"
+          text
+          small
+          v-if="item.idOwner == idOwner"
+        >
           edit
         </v-btn>
-        <v-btn class="" color="red" text small>
+        <v-btn class="" color="red" text small v-if="item.idOwner == idOwner">
           delete
         </v-btn>
       </div>
@@ -39,5 +45,13 @@
 <script>
 export default {
   props: { item: [] },
+  data: () => ({
+    idOwner: localStorage.getItem("id"),
+  }),
+  methods: {
+    explore(item) {
+      console.log(item);
+    },
+  },
 };
 </script>
