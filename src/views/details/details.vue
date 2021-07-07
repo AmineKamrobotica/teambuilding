@@ -13,11 +13,18 @@ export default {
   },
   data: () => ({
     detailsData: [],
-    items: [require("../../assets/images/upload/image2.jpg")],
+    items: [],
   }),
   created() {
     this.detailsData = this.$route.params.details;
-    console.log(this.detailsData);
+
+    for (let i = 0; i < this.detailsData.image.length; i++) {
+      
+      this.items.push(
+        require("../../assets/images/upload/" + this.detailsData.image[i])
+      );
+    }
+    
   },
 };
 </script>
