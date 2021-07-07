@@ -4,8 +4,7 @@ const app = express();
 const apiUser = require("./routes/user");
 const apiBuilding = require("./routes/addBuilding");
 
-
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header(
@@ -19,7 +18,7 @@ mongoose
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify:false
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("connect to db");
@@ -31,6 +30,6 @@ mongoose
 app.use(express.json());
 app.use("/user", apiUser);
 app.use("/building", apiBuilding);
-app.use(express.static("./uploads"));
+app.use(express.static("./src/assets/images/upload"));
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
