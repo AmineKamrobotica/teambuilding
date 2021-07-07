@@ -1,48 +1,51 @@
 <template>
   <v-container>
+    <h1 class="hExplore">Explore our programms</h1>
     <div class="contExplore text-center">
-      <h1 class="hExplore">Explore our programms</h1>
       <v-row>
-        <v-col v-for="(item, index) in data" :key="index" md="3">
-          <v-card class="mx-auto" max-width="344">
-            <v-img src="" height="200px" />
+        <v-col v-for="(item, i) in data" :key="i" cols="12">
+          <v-card>
+            <div class="d-flex flex-no-wrap">
+              <v-avatar class="ma-3" size="125" tile>
+                <v-img
+                  :src="
+                    require('../../assets/images/upload/' + `${item.image[0]}`)
+                  "
+                ></v-img>
+              </v-avatar>
+              <div>
+                <v-card-title
+                  class="text-h5"
+                  v-text="item.title"
+                ></v-card-title>
+                <div>
+                  <h6>publisher : {{item.owner}} </h6>
+                  <h6>location : {{item.location}}</h6>
+                  <h6>date : {{item.date}}</h6>
+                  <h6>hour : {{item.time}}</h6>
+                </div>
+              </div>
+              
+            </div>
+            <v-divider></v-divider>
+            <v-card-actions class="d-flex flex-no-wrap justify-space-between">
+              
+              <div>
+                <v-btn class="ml-2" color="green" rounded small>
+                  explore
+                </v-btn>
 
-            <v-card-title>
-              {{ item.image[0] }}
-            </v-card-title>
-
-            <v-card-subtitle>
-              1,000 miles of wonder
-            </v-card-subtitle>
-
-            <v-card-actions>
-              <v-btn color="orange lighten-2" text>
-                Explore
-              </v-btn>
-
-              <v-spacer></v-spacer>
-
-              <v-btn icon @click="show = !show">
-                <v-icon>{{
-                  show ? "mdi-chevron-up" : "mdi-chevron-down"
-                }}</v-icon>
+                <v-btn class="ml-2" color="yellow" rounded small>
+                  edit
+                </v-btn>
+                <v-btn class="ml-2" color="red" rounded small>
+                  delete
+                </v-btn>
+              </div>
+              <v-btn class="ml-2" color="pink" rounded small>
+                vote
               </v-btn>
             </v-card-actions>
-
-            <v-expand-transition>
-              <div v-show="show">
-                <v-divider></v-divider>
-
-                <v-card-text>
-                  I'm a thing. But, like most politicians, he promised more than
-                  he could deliver. You won't have time for sleeping, soldier,
-                  not with all the bed making you'll be doing. Then we'll go
-                  with that data file! Hey, you add a one and two zeros to that
-                  or we walk! You're going to do his laundry? I've got to find a
-                  way to escape.
-                </v-card-text>
-              </div>
-            </v-expand-transition>
           </v-card>
         </v-col>
       </v-row>
@@ -54,14 +57,19 @@ import axios from "axios";
 export default {
   data: () => ({
     data: [],
+    images: [],
+    imgSrc: "image2.jpg",
     show: false,
-    imgPreUrl: "../../../upload/",
+    reveal: false,
   }),
   created() {
     axios.get("http://localhost:5000/building/").then((res) => {
       this.data = res.data;
-      console.log(this.data[0]);
+      console.log(this.data);
     });
   },
 };
 </script>
+<style>
+@import url("./explore.css");
+</style>
