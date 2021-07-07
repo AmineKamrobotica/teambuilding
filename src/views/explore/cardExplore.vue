@@ -49,8 +49,9 @@ export default {
     idOwner: localStorage.getItem("id"),
   }),
   methods: {
-    explore(item) {
-      console.log(item);
+    explore(item2) {
+      console.log(item2);
+      this.$router.push({ name: "details", params: { details: item2 } });
     },
   },
 };

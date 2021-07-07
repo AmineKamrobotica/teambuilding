@@ -66,18 +66,13 @@ export default {
   data: () => ({
     snackbar: false,
     items: [
-      {
-        src: require("./images/image2.jpg"),
-      },
-      {
-        src: require("./images/image3.jpg"),
-      },
-      {
-        src: require("./images/image5.jpg"),
-      },
-      {
-        src: require("./images/image6.jpg"),
-      },
+      require("./images/image2.jpg"),
+
+      require("./images/image3.jpg"),
+
+      require("./images/image5.jpg"),
+
+      require("./images/image6.jpg"),
     ],
   }),
   created() {

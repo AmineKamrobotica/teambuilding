@@ -8,7 +8,7 @@
     max-height: 100%;"
         v-for="(item, i) in items"
         :key="i"
-        :src="item.src"
+        :src="item"
       >
         <div class="description">
           <h2>{{ titles[i] }}</h2>

@@ -25,7 +25,7 @@ export default {
         .then((res) => {
           this.$store.state.token = res.data.token;
           this.$store.state.username = res.data.name + " " + res.data.lastName;
-          console.log(res.data);
+          
         });
     }
   },

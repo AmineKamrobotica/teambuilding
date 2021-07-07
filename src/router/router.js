@@ -5,6 +5,7 @@ import Signup from "../views/signup/signup.vue";
 import Login from "../views/login/login.vue";
 import Organize from "../views/organize/organize.vue";
 import Explore from "../views/explore/explore.vue";
+import Details from "../views/details/details.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/explore",
     name: "explore",
     component: Explore,
+  },
+  {
+    path: "/details",
+    name: "details",
+    component: Details,
   },
 ];
 
