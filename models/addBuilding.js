@@ -33,6 +33,10 @@ const buildingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  idOwner: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("addBuilding", buildingSchema);

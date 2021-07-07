@@ -43,6 +43,7 @@ router.post("/postBuilding", upload, async (req, res) => {
     date: req.body.date,
     time: req.body.time,
     owner: req.body.owner,
+    idOwner: req.body.idOwner,
     timeOfPublich: today,
   });
   if (req.files) {

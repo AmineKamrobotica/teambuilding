@@ -95,6 +95,7 @@ export default {
         formData.append("date", this.date);
         formData.append("time", this.time);
         formData.append("owner", this.$store.state.username);
+        formData.append("idOwner", localStorage.getItem("id"));
         for (let i = 0; i < this.files.length; i++) {
           formData.append("image", this.files[i]);
         }
