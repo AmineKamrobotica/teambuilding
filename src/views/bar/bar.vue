@@ -42,7 +42,7 @@ export default {
     ],
     afterauth: [
       { name: "Organize", link: "/organize" },
-      { name: "calendar", link: "#" },
+      { name: "memories", link: "#" },
     ],
   }),
 };
