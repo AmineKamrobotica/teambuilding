@@ -47,8 +47,9 @@ export default {
       this.dialog = true;
     },
     agree() {
-      console.log("agree");
-      this.disagree();
+      axios.delete("http://localhost:5000/building/" + this.id).then(() => {
+        this.$router.go(0), this.disagree();
+      });
     },
   },
 };
