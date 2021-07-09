@@ -45,9 +45,16 @@
             delete
           </v-btn>
         </div>
-        <v-btn class="ml-2" color="pink" rounded small>
-          vote
-        </v-btn>
+        <div>
+          <v-btn @click="countUp++" text icon color="blue lighten-2">
+            <v-icon>mdi-thumb-up</v-icon>
+          </v-btn>
+          <span>{{ countUp }}</span>
+          <v-btn text icon color="red lighten-2">
+            <v-icon>mdi-thumb-down</v-icon>
+          </v-btn>
+          <span>{{ countUp }}</span>
+        </div>
       </v-card-actions>
     </v-card>
   </div>
@@ -59,6 +66,7 @@ export default {
   data: () => ({
     dialog: false,
     idOwner: localStorage.getItem("id"),
+    countUp: 1,
   }),
   methods: {
     explore(item2) {
