@@ -40,6 +40,7 @@
             text
             small
             v-if="item.idOwner == idOwner"
+            ref="deleteProgramme"
           >
             delete
           </v-btn>

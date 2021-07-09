@@ -10,10 +10,6 @@
         :key="i"
         :src="item"
       >
-        <div class="description">
-          <h2>{{ titles[i] }}</h2>
-          <p>{{ descs[i] }}</p>
-        </div>
       </v-carousel-item>
     </v-carousel>
   </v-container>
@@ -25,8 +21,7 @@ export default {
   },
   data() {
     return {
-      titles: ["1st meet", "2nd meet", "3rd meet", "4th meet"],
-      descs: ["", "", "", ""],
+      
     };
   },
 };

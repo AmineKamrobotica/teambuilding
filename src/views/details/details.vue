@@ -1,6 +1,54 @@
 <template>
   <v-container grid-list-xs>
+    <div
+      style="    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    justify-self: center; "
+    >
+      <h2>details of the programme</h2>
+      <v-icon color="pink">mdi-home</v-icon>
+    </div>
     <carousel :items="items"></carousel>
+    <v-row>
+      <v-col md="6"
+        ><h2>description :</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo magnam
+          reprehenderit sapiente facilis, necessitatibus perferendis eum neque
+          itaque culpa molestiae a sunt. Quisquam, doloremque laborum. Porro
+          dolorem necessitatibus deleniti officiis.
+        </p></v-col
+      >
+      <v-col md="3"
+        ><h2>date :</h2>
+        <span>{{ this.detailsData.date }}</span></v-col
+      >
+      <v-col md="3"
+        ><h2>time :</h2>
+        <span>{{ this.detailsData.time }}</span></v-col
+      >
+    </v-row>
+
+    <v-divider></v-divider>
+    <h3>commenters</h3>
+    <v-divider></v-divider>
+    <v-row>
+      <v-col md="10">
+        <v-textarea
+          filled
+          outlined
+          dense
+          height="85px"
+          label="your comment"
+        ></v-textarea
+      ></v-col>
+      <v-col md="2"
+        ><v-btn color="primary" style="position: relative; top: 23px;">
+          commenter</v-btn
+        ></v-col
+      >
+    </v-row>
   </v-container>
 </template>
 
@@ -19,12 +67,10 @@ export default {
     this.detailsData = this.$route.params.details;
 
     for (let i = 0; i < this.detailsData.image.length; i++) {
-      
       this.items.push(
         require("../../assets/images/upload/" + this.detailsData.image[i])
       );
     }
-    
   },
 };
 </script>
