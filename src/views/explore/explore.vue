@@ -43,12 +43,14 @@ export default {
     },
     deleteProgram(value) {
       this.id = value;
+      this.$store.state.id = value;
       console.log(this.id);
+      console.log(this.$store.state.id);
       this.dialog = true;
     },
     agree() {
-      axios.delete("http://localhost:5000/building/" + this.id).then(() => {
-        this.$router.go(0), this.disagree();
+      this.$store.dispatch("deleteItem", { id: this.id }).then(() => {
+        this.disagree();
       });
     },
   },

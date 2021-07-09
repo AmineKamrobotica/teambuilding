@@ -29,7 +29,7 @@
             color="yellow"
             text
             small
-            v-if="item.idOwner == idOwner"
+            v-if="item.idOwner == idOwner && this.$store.state.token"
           >
             edit
           </v-btn>
@@ -39,7 +39,7 @@
             color="red"
             text
             small
-            v-if="item.idOwner == idOwner"
+            v-if="item.idOwner == idOwner && this.$store.state.token"
             ref="deleteProgramme"
           >
             delete
