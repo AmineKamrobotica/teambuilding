@@ -14,10 +14,7 @@
       <v-col md="6"
         ><h2>description :</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo magnam
-          reprehenderit sapiente facilis, necessitatibus perferendis eum neque
-          itaque culpa molestiae a sunt. Quisquam, doloremque laborum. Porro
-          dolorem necessitatibus deleniti officiis.
+          {{ this.detailsData.description }}
         </p></v-col
       >
       <v-col md="3"

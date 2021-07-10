@@ -46,7 +46,7 @@
           </v-btn>
         </div>
         <div>
-          <v-btn @click="countUp++" text icon color="blue lighten-2">
+          <v-btn @click="check" text icon color="blue lighten-2">
             <v-icon>mdi-thumb-up</v-icon>
           </v-btn>
           <span>{{ countUp }}</span>
@@ -75,6 +75,14 @@ export default {
     },
     delete2(id) {
       this.$emit("deleteProgram", id);
+    },
+    check() {
+      var data = {
+        idProgram: this.item._id,
+        voted: 1,
+        idUser: localStorage.getItem("id"),
+      };
+      this.$store.dispatch("getVote", {data: data});
     },
   },
 };
