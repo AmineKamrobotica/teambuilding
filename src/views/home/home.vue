@@ -76,11 +76,8 @@ export default {
     ],
   }),
   created() {
-    if (this.$route.params.userData) {
+    if (this.$route.params.userAuthed) {
       this.snackbar = true;
-      console.log(this.$store.state.token, this.$store.state.username);
-      console.log(this.$store.state.userData._id);
-      console.log(localStorage.getItem("userProfil"));
     }
   },
   methods: {},
