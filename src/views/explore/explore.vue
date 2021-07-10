@@ -51,6 +51,7 @@ export default {
     agree() {
       this.$store.dispatch("deleteItem", { id: this.id }).then(() => {
         this.disagree();
+        this.$router.go();
       });
     },
   },
