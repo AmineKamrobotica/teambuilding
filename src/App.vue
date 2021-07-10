@@ -19,16 +19,14 @@ export default {
   },
   name: "App",
   created() {
-    if (localStorage.getItem("id")) {
+    if (localStorage.getItem("id") || this.$router) {
       axios
         .get("http://localhost:5000/user/" + localStorage.getItem("id"))
         .then((res) => {
           this.$store.state.token = res.data.token;
           this.$store.state.username = res.data.name + " " + res.data.lastName;
-        })
-        .then(console.log("creATED"));
+        });
     }
-   
   },
   data: () => ({
     //
