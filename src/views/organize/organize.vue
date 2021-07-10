@@ -69,6 +69,7 @@ export default {
     title: "",
     description: "",
     location: "",
+    vote: 0,
   }),
 
   computed: {},
@@ -96,6 +97,7 @@ export default {
         formData.append("time", this.time);
         formData.append("owner", this.$store.state.username);
         formData.append("idOwner", localStorage.getItem("id"));
+        formData.append("vote", this.vote);
         for (let i = 0; i < this.files.length; i++) {
           formData.append("image", this.files[i]);
         }

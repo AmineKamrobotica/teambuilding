@@ -49,11 +49,7 @@
           <v-btn @click="check" text icon color="blue lighten-2">
             <v-icon>mdi-thumb-up</v-icon>
           </v-btn>
-          <span>{{ countUp }}</span>
-          <v-btn text icon color="red lighten-2">
-            <v-icon>mdi-thumb-down</v-icon>
-          </v-btn>
-          <span>{{ countUp }}</span>
+          <span>{{ item.vote }}</span>
         </div>
       </v-card-actions>
     </v-card>
@@ -67,7 +63,13 @@ export default {
     dialog: false,
     idOwner: localStorage.getItem("id"),
     countUp: 1,
+    voted: false,
   }),
+  watch: {
+    voted: function(val) {
+      val ? this.countUp++ : this.countUp--;
+    },
+  },
   methods: {
     explore(item2) {
       console.log(item2);
@@ -77,12 +79,7 @@ export default {
       this.$emit("deleteProgram", id);
     },
     check() {
-      var data = {
-        idProgram: this.item._id,
-        voted: 1,
-        idUser: localStorage.getItem("id"),
-      };
-      this.$store.dispatch("getVote", {data: data});
+      this.voted = !this.voted;
     },
   },
 };

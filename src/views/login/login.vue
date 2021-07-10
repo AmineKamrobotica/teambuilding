@@ -117,7 +117,9 @@ export default {
             password: this.password,
           })
           .then((res) => {
-            //this.$store.state.userData = res.data.user;
+            if (!res.ok) {
+              console.log("helo");
+            }
             localStorage.setItem("id", res.data.user._id);
             axios.put(
               "http://localhost:5000/user/token/" + localStorage.getItem("id"),
@@ -125,9 +127,10 @@ export default {
                 token: res.data.token,
               }
             );
-            this.$router.go();
+            this.$router.push({ name: "Home", params: { userAuthed: true } });
+
+            //this.$store.state.userData = res.data.user;
           });
-        this.$router.push({ name: "Home", params: { userAuthed: true } });
       } else {
         console.log("something wrong!!!");
       }
