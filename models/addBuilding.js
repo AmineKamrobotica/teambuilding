@@ -37,6 +37,7 @@ const buildingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  vote: { type: Number, required: false },
 });
 
 module.exports = mongoose.model("addBuilding", buildingSchema);

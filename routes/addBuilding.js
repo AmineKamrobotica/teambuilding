@@ -19,7 +19,7 @@ router.get("/:id", async (req, res) => {
   res.send(addBuild);
 });
 router.get("/owner/:id", async (req, res) => {
-  const addBuild = await addBuilding.find({ idUserPoster: req.params.id });
+  const addBuild = await addBuilding.find({ idOwner: req.params.id });
   res.send(addBuild);
 });
 
@@ -45,6 +45,7 @@ router.post("/postBuilding", upload, async (req, res) => {
     owner: req.body.owner,
     idOwner: req.body.idOwner,
     timeOfPublich: today,
+    vote: req.body.vote,
   });
   if (req.files) {
     let path = [];
@@ -72,18 +73,15 @@ router.get("/location/:location", async (req, res) => {
   if (!location) return res.status(404).send("The distination not found.");
   res.send(location);
 });
-/* 
-router.put("/:id", async (req, res) => {
-  const genre = await Covoiturage.findByIdAndUpdate(req.params.id, {
-    depart: req.body.depart,
-    arrive: req.body.arrive,
-    new: true,
+
+router.put("/vote/:id", async (req, res) => {
+  const vote = await addBuilding.findByIdAndUpdate(req.params.id, {
+    vote: req.body.vote,
   });
 
-  if (!genre)
+  if (!vote)
     return res.status(404).send("The genre with the given ID was not found.");
-  res.send(genre);
+  res.send(vote);
 });
 
- */
 module.exports = router;
