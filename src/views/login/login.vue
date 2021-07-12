@@ -51,6 +51,15 @@
             submit
           </v-btn>
         </form>
+        <v-snackbar top color="#e63946" v-model="alert" :timeout="timeout">
+          your password or email are invalid
+
+          <template v-slot:action="{ attrs }">
+            <v-btn color="#1d3557" text v-bind="attrs" @click="alert = false">
+              Close
+            </v-btn>
+          </template>
+        </v-snackbar>
       </div>
     </v-container>
   </v-main>
@@ -71,14 +80,11 @@ export default {
   data: () => ({
     name: "",
     email: "",
-    select: null,
-    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
-    checkbox: false,
     show: false,
     password: "",
     snackbar: false,
-    login: [],
-    profil: [],
+    alert: false,
+    timeout: 2000,
     rules: {
       required: (value) => !!value || "Required.",
       min: (v) => v.length >= 8 || "Min 8 characters",
@@ -126,14 +132,14 @@ export default {
             );
             setTimeout(() => {
               this.$router.go(0);
-              
             }, 500);
             this.$router.push({ name: "Home", params: { userAuthed: true } });
 
             //this.$store.state.userData = res.data.user;
-          });
+          })
+          .errors((this.alert = true));
       } else {
-        console.log("something wrong!!!");
+        this.alert = true;
       }
     },
   },

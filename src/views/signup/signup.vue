@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    
     <div class="cont text-center">
       <form>
         <v-row>
@@ -73,6 +72,15 @@
           submit
         </v-btn>
       </form>
+      <v-snackbar top color="#e63946" v-model="alert" :timeout="timeout">
+        please check you data entred
+
+        <template v-slot:action="{ attrs }">
+          <v-btn color="#1d3557" text v-bind="attrs" @click="alert = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </div>
   </v-container>
 </template>
@@ -96,7 +104,8 @@ export default {
     show2: false,
     password: "",
     confirmPassword: "",
-    
+    alert: false,
+    timeout: 2000,
     rules: {
       required: (value) => !!value || "Required.",
       min: (v) => v.length >= 8 || "Min 8 characters",
@@ -149,7 +158,7 @@ export default {
             });
           });
       } else {
-        console.log("something wrong!!!");
+        this.alert = true;
       }
     },
     clear() {
