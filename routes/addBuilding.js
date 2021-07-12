@@ -85,11 +85,11 @@ router.put("/vote/:id", async (req, res) => {
 });
 router.put("/postBuilding/:id", async (req, res) => {
   const postBuilding = await addBuilding.findByIdAndUpdate(req.params.id, {
-    date: this.body.date,
-    time: this.body.time,
-    description: this.body.description,
-    location: this.body.location,
-    title: this.body.title,
+    time: req.body.time,
+    description: req.body.description,
+    location: req.body.location,
+    date: req.body.date,
+    title: req.body.title,
   });
 
   if (!postBuilding)

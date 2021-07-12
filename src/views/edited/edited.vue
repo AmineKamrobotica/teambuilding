@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 class="hEdited">Organize</h1>
+    <h1 class="hEdited">Edit</h1>
     <div class="contEdited text-center">
       <form method="POST" enctype="multipart/formdata">
         <v-text-field
@@ -22,11 +22,15 @@
           label="description"
         ></v-textarea>
         <v-row>
-          <v-col md="6" sm="12"><picke-date-time :time="time" @clicked="logChange"/></v-col>
+          <v-col md="6" sm="12"
+            ><picke-date-time :time="time" @clicked="logChange"
+          /></v-col>
           <v-col md="6" sm="12"><picke-time @timechange="timeChange"/></v-col>
         </v-row>
       </form>
-      <v-btn color="#2c699a" class="btnsEdited" block x-large>Submit</v-btn>
+      <v-btn color="#2c699a" class="btnsEdited" block x-large @click="editPost"
+        >Submit</v-btn
+      >
     </div>
   </v-container>
 </template>
@@ -45,13 +49,14 @@ export default {
     title: "",
     description: "",
     location: "",
-    
+    id: "",
   }),
   created() {
     axios
       .get("http://localhost:5000/building/" + this.$route.params.id)
       .then((res) => {
-        (this.date = res.data.date),
+        (this.id = this.$route.params.id),
+          (this.date = res.data.date),
           (this.time = res.data.time),
           (this.title = res.data.title),
           (this.description = res.data.description),
@@ -67,6 +72,18 @@ export default {
     },
     timeChange(value) {
       this.time = value;
+    },
+    editPost() {
+      this.$store
+        .dispatch("editPost", {
+          id: this.id,
+          title: this.title,
+          location: this.location,
+          desc: this.description,
+          time: this.time,
+          date: this.date,
+        })
+        .then(this.$router.push("/explore"));
     },
     /* images(value) {
       this.files = value;

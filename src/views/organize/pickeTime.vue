@@ -37,7 +37,7 @@
 </template>
 <script>
 export default {
-  props:{time:""},
+ 
   data() {
     return {
       time: null,
