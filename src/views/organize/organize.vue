@@ -16,23 +16,7 @@
           outlined
         ></v-text-field>
         <input-file @inputFile="images"></input-file>
-        <!-- <v-file-input
-          id="filesinput"
-          v-model="files"
-          placeholder="Upload your documents"
-          label="File input"
-          multiple
-          type="file"
-          prepend-icon="mdi-paperclip"
-          name="image"
-          @change="filesIput"
-        >
-          <template v-slot:selection="{ text }">
-            <v-chip small label color="primary">
-              {{ text }}
-            </v-chip>
-          </template>
-        </v-file-input> -->
+        
         <v-textarea
           v-model="description"
           outlined

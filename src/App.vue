@@ -19,7 +19,7 @@ export default {
   },
   name: "App",
   created() {
-    if (localStorage.getItem("id") || this.$router) {
+    if (localStorage.getItem("id")) {
       axios
         .get("http://localhost:5000/user/" + localStorage.getItem("id"))
         .then((res) => {

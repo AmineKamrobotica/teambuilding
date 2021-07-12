@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
     username: "",
     userData: [],
     id: "",
+    
   },
   mutations: {},
   actions: {
