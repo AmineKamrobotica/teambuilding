@@ -1,6 +1,6 @@
 .contExplore {
     margin-top: 10px !important;
-    width: 50%;
+    width: 90%;
     margin: auto;
     position: relative;
 
@@ -13,9 +13,12 @@
     width: 100%;
 }
 
-h6 {
+h4 {
     text-align: left;
 }
 .hExplore{
     text-align: center;
+}
+.spanExplore{
+    margin-top: 10px;
 }

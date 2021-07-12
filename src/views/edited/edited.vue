@@ -83,7 +83,7 @@ export default {
           time: this.time,
           date: this.date,
         })
-        .then(this.$router.push("/explore"));
+        .then(this.$router.push("/explore"), this.$router.go());
     },
     /* images(value) {
       this.files = value;
