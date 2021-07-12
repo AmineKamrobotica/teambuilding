@@ -32,10 +32,10 @@
     </v-row>
 
     <v-divider></v-divider>
-    <h3>commenters</h3>
+    <h3>comments</h3>
     <v-divider></v-divider>
-    <v-row mt-5>
-      <v-col md="10">
+    <v-row style="margin: 5px">
+      <v-col md="10" sm="12" xs="12">
         <v-textarea
           filled
           outlined
@@ -44,9 +44,9 @@
           label="your comment"
         ></v-textarea
       ></v-col>
-      <v-col md="2"
-        ><v-btn color="primary" style="position: relative; top: 23px;">
-          commenter</v-btn
+      <v-col md="2" sm="12" xs="12"
+        ><v-btn block color="primary" style="position: relative;">
+          comments</v-btn
         ></v-col
       >
     </v-row>

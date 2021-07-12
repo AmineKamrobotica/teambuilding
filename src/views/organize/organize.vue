@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="hOrganize">Organize</h1>
-    <div class="contOrganize text-center">
+    <div class="contOrganize">
       <form method="POST" enctype="multipart/formdata">
         <v-text-field
           prepend-icon=" mdi-pen"

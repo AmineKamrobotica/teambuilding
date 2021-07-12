@@ -13,7 +13,7 @@
       authentication successfully
     </v-snackbar>
     <v-row class="all">
-      <v-col md="8">
+      <v-col md="8" sm="12" xs="12">
         <p class="intro">
           Dive in! There are so many things to do here together
         </p>
@@ -48,8 +48,11 @@
           </v-btn>
         </div>
       </v-col>
-      <v-col md="4">
-        <v-img src="../../assets/images/home.png" />
+      <v-col md="4" sm="12" xs="12">
+        <v-img
+          class="d-none d-md-block"
+          src="../../assets/images/home.png"
+        />
       </v-col>
     </v-row>
     <build-passed />
