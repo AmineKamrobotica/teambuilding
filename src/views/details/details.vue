@@ -11,7 +11,7 @@
     </div>
     <carousel :items="items"></carousel>
     <v-row>
-      <v-col md="6"
+      <v-col md="5"
         ><h2>description :</h2>
         <p>
           {{ this.detailsData.description }}
@@ -25,12 +25,16 @@
         ><h2>time :</h2>
         <span>{{ this.detailsData.time }}</span></v-col
       >
+      <v-col md="1"
+        ><h3>vote :</h3>
+        <span>{{ this.detailsData.vote }}</span></v-col
+      >
     </v-row>
 
     <v-divider></v-divider>
     <h3>commenters</h3>
     <v-divider></v-divider>
-    <v-row>
+    <v-row mt-5>
       <v-col md="10">
         <v-textarea
           filled

@@ -12,7 +12,6 @@ export const store = new Vuex.Store({
     username: "",
     userData: [],
     id: "",
-    
   },
   mutations: {},
   actions: {
@@ -21,10 +20,10 @@ export const store = new Vuex.Store({
         console.log("hello dispatch");
       });
     },
-    getVote(state, { data }) {
-      var voteRef = firebase.database().ref("vote/" + data.idProgram);
-      voteRef.push(data);
-      console.log("hello noo");
+    updateVote(state, { id, voteEdited }) {
+      axios.put("http://localhost:5000/building/vote/" + id, {
+        vote: voteEdited,
+      });
     },
   },
 });

@@ -46,7 +46,7 @@
           </v-btn>
         </div>
         <div>
-          <v-btn @click="check" text icon color="blue lighten-2">
+          <v-btn v-model="voted" @click="check" text icon color="indigo">
             <v-icon>mdi-thumb-up</v-icon>
           </v-btn>
           <span>{{ item.vote }}</span>
@@ -62,12 +62,13 @@ export default {
   data: () => ({
     dialog: false,
     idOwner: localStorage.getItem("id"),
-    countUp: 1,
+    countUp: Number,
     voted: false,
+    
   }),
   watch: {
     voted: function(val) {
-      val ? this.countUp++ : this.countUp--;
+      val ? this.update(++this.item.vote) : this.update(--this.item.vote);
     },
   },
   methods: {
@@ -80,6 +81,11 @@ export default {
     },
     check() {
       this.voted = !this.voted;
+    },
+    update(value) {
+      this.$store
+        .dispatch("updateVote", { id: this.item._id, voteEdited: value })
+        .then(console.log(this.item.vote));
     },
   },
 };
