@@ -89,9 +89,7 @@ export default {
       formData.append("image", this.files[1]); */
         axios
           .post("http://localhost:5000/building/postBuilding", formData)
-          .then((res) => {
-            console.log(res.data);
-          })
+          .then(this.$router.push("/explore"), this.$router.go(0))
           .catch((err) => {
             console.log(err);
           });
