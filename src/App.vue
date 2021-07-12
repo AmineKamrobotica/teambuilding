@@ -20,6 +20,7 @@ export default {
   name: "App",
   created() {
     if (localStorage.getItem("id")) {
+      this.$store.state.authed = true;
       axios
         .get("http://localhost:5000/user/" + localStorage.getItem("id"))
         .then((res) => {

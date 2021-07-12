@@ -5,8 +5,11 @@
       <v-spacer></v-spacer>
 
       <span style="display: flex;">
-        <router-link to="/" class="link">home </router-link>
-        <span style="display: flex;" v-if="!this.$store.state.token">
+        <router-link to="/" class="link" style="">home </router-link>
+        <span
+          style="display: flex;"
+          v-if="!this.$store.state.token && !this.$store.state.authed"
+        >
           <router-link
             v-for="(link, index) in links"
             :key="index"
@@ -16,7 +19,10 @@
             {{ link.name }}
           </router-link>
         </span>
-        <span style="display: flex;" v-if="this.$store.state.token">
+        <span
+          style="display: flex;"
+          v-if="this.$store.state.token && this.$store.state.authed"
+        >
           <router-link
             v-for="(link, index) in afterauth"
             :key="index + 100"
@@ -28,6 +34,15 @@
           <router-link to="#" class="linkUser">{{
             this.$store.state.username
           }}</router-link>
+          <v-btn
+            style="margin-left:10px"
+            small
+            icon
+            color="pink"
+            @click="logOut"
+          >
+            <v-icon>mdi-logout</v-icon>
+          </v-btn>
         </span>
       </span>
     </v-container>
@@ -45,6 +60,12 @@ export default {
       { name: "memories", link: "#" },
     ],
   }),
+  methods: {
+    logOut() {
+      localStorage.removeItem("id");
+      this.$router.go(0);
+    },
+  },
 };
 </script>
 <style scoped>

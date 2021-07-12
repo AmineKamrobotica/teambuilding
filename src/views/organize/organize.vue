@@ -69,7 +69,7 @@ export default {
       this.files = value;
     },
     change() {
-      if (this.$store.state.token) {
+      if (this.$store.state.token && localStorage.getItem("id")) {
         var formData = new FormData();
         formData.append("title", this.title);
         formData.append("location", this.location);

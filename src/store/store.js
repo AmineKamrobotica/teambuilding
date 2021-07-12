@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    authed: false,
     token: "",
     username: "",
     userData: [],
