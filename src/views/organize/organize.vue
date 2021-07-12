@@ -16,7 +16,7 @@
           outlined
         ></v-text-field>
         <input-file @inputFile="images"></input-file>
-        
+
         <v-textarea
           v-model="description"
           outlined
@@ -61,15 +61,12 @@ export default {
   methods: {
     logChange(value) {
       this.date = value;
-      console.log("the date is " + this.date);
     },
     timeChange(value) {
       this.time = value;
-      console.log("the time is " + this.time);
     },
     images(value) {
       this.files = value;
-      console.log("images " + this.files);
     },
     change() {
       if (this.$store.state.token) {

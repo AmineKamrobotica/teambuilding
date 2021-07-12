@@ -83,5 +83,19 @@ router.put("/vote/:id", async (req, res) => {
     return res.status(404).send("The genre with the given ID was not found.");
   res.send(vote);
 });
+router.put("/postBuilding/:id", async (req, res) => {
+  const postBuilding = await addBuilding.findByIdAndUpdate(req.params.id, {
+    date: this.body.date,
+    time: this.body.time,
+    description: this.body.description,
+    location: this.body.location,
+    title: this.body.title,
+    vote: req.body.vote,
+  });
+
+  if (!postBuilding)
+    return res.status(404).send("The genre with the given ID was not found.");
+  res.send(postBuilding);
+});
 
 module.exports = router;
