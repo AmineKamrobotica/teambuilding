@@ -20,18 +20,23 @@
       <v-divider></v-divider>
       <v-card-actions class="d-flex flex-no-wrap justify-space-between">
         <div>
-          <v-btn class="" color="green" text small @click="explore(item)">
+          <v-btn class="" color="#16db93" text small @click="explore(item)">
             explore
+            <v-icon dark right small>
+              mdi-arrow-right
+            </v-icon>
           </v-btn>
 
           <v-btn
             class=""
-            color="yellow"
+            color="#f1c453"
             text
             small
             v-if="item.idOwner == idOwner && this.$store.state.token"
             @click="goToEdit(item._id)"
-          >
+            ><v-icon dark small left>
+              mdi-wrench
+            </v-icon>
             edit
           </v-btn>
           <v-btn
@@ -43,10 +48,11 @@
             v-if="item.idOwner == idOwner && this.$store.state.token"
             ref="deleteProgramme"
           >
+            <v-icon dark small left>mdi-delete</v-icon>
             delete
           </v-btn>
         </div>
-        <div>
+        <div v-if="this.$store.state.token && this.$store.state.authed">
           <v-btn v-model="voted" @click="check" text icon color="indigo">
             <v-icon>mdi-thumb-up</v-icon>
           </v-btn>
@@ -88,7 +94,6 @@ export default {
         .then(console.log(this.item.vote));
     },
     goToEdit(id) {
-      
       this.$router.push({ name: "edit", params: { id: id } });
     },
   },

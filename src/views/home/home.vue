@@ -20,25 +20,29 @@
         <p style="font-size: 21px;">
           Join the official group of proxym's Team Building,
         </p>
-        <div class="divbtns">
+        <div>
           <v-btn outlined color="#2c699a" class="btns"
             ><router-link
               :to="this.$store.state.token ? '/organize' : '/login'"
               class="linkOrganize"
-              >Organize</router-link
+            >
+              <v-icon dark small left>mdi-gavel</v-icon>Organize</router-link
             ></v-btn
           >
 
           <v-btn
             color="#2c699a"
             elevation="0"
-            style="color: white;"
+            style="color: white; margin-left:10px"
             class="btns"
           >
             <router-link
               to="/explore"
               style="text-decoration: none; color: white"
             >
+              <v-icon dark left small>
+                mdi-arrow-right
+              </v-icon>
               explore
             </router-link>
           </v-btn>

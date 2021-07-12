@@ -1,7 +1,7 @@
 <template>
-  <v-app-bar app color="white">
+  <v-app-bar app color="white" hide-on-scroll>
     <v-container class="py-0 fill-height">
-      <span class="logo"> proxyfy</span>
+      <span class="logo">proxyfy</span>
       <v-spacer></v-spacer>
 
       <span style="display: flex;">
