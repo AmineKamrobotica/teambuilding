@@ -6,6 +6,7 @@ import Login from "../views/login/login.vue";
 import Organize from "../views/organize/organize.vue";
 import Explore from "../views/explore/explore.vue";
 import Details from "../views/details/details.vue";
+import Edit from "../views/edited/edited.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/details",
     name: "details",
     component: Details,
+  },
+  {
+    path: "/edit",
+    name: "edit",
+    component: Edit,
   },
 ];
 

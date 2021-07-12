@@ -90,7 +90,6 @@ router.put("/postBuilding/:id", async (req, res) => {
     description: this.body.description,
     location: this.body.location,
     title: this.body.title,
-    vote: req.body.vote,
   });
 
   if (!postBuilding)

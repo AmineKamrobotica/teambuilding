@@ -30,6 +30,7 @@
             text
             small
             v-if="item.idOwner == idOwner && this.$store.state.token"
+            @click="goToEdit(item._id)"
           >
             edit
           </v-btn>
@@ -64,7 +65,6 @@ export default {
     idOwner: localStorage.getItem("id"),
     countUp: Number,
     voted: false,
-    
   }),
   watch: {
     voted: function(val) {
@@ -86,6 +86,10 @@ export default {
       this.$store
         .dispatch("updateVote", { id: this.item._id, voteEdited: value })
         .then(console.log(this.item.vote));
+    },
+    goToEdit(id) {
+      
+      this.$router.push({ name: "edit", params: { id: id } });
     },
   },
 };
