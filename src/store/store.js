@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     username: "",
     userData: [],
     id: "",
+    comments: [],
   },
   mutations: {},
   actions: {
@@ -33,5 +34,13 @@ export const store = new Vuex.Store({
         description: postInfo.desc,
       });
     },
+    /* getCommentPost(state, { id }) {
+      axios.get("http://localhost:5000/comments/" + id).then((res) => {
+        this.comments = res.data;
+      });
+    }, */
+    /* postComment(state,{commentInfo}){
+      axios.post("http://localhost:5000/comments/postComments"+id)
+    } */
   },
 });
