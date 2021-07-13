@@ -44,8 +44,6 @@ export default {
     deleteProgram(value) {
       this.id = value;
       this.$store.state.id = value;
-      console.log(this.id);
-      console.log(this.$store.state.id);
       this.dialog = true;
     },
     agree() {

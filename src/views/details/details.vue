@@ -37,6 +37,7 @@
     <v-row style="margin: 5px">
       <v-col md="10" sm="12" xs="12">
         <v-textarea
+          v-model="comment"
           filled
           outlined
           dense
@@ -68,6 +69,7 @@ export default {
   data: () => ({
     detailsData: [],
     items: [],
+    comment: "",
   }),
   created() {
     this.detailsData = this.$route.params.details;
@@ -81,7 +83,14 @@ export default {
   methods: {
     comments() {
       if (this.$store.state.token && localStorage.getItem("id")) {
-        console.log("okk");
+        /* var comentInfo = {
+          id: this.detailsData._id,
+          content: this.comment,
+          idPost: this.detailsData.idOwner,
+          owner: this.detailsData.owner,
+          idOwner: this.detailsData.idOwner,
+        };
+        this.$store.dispatch("getCommentsPost", { id: this.detailsData._id }); */
       } else {
         this.$router.push("/login");
       }

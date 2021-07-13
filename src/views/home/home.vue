@@ -2,7 +2,7 @@
   <v-container class="try">
     <v-snackbar
       transition="slide-x-transition"
-      :timeout="1000"
+      :timeout="6000"
       v-model="snackbar"
       absolute
       top
