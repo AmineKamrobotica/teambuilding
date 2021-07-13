@@ -24,13 +24,13 @@ export const store = new Vuex.Store({
         vote: voteEdited,
       });
     },
-    editPost(state, { id, title, location, date, time, desc }) {
-      axios.put("http://localhost:5000/building/postBuilding/" + id, {
-        title: title,
-        location: location,
-        date: date,
-        time: time,
-        description: desc,
+    editPost(state, { postInfo }) {
+      axios.put("http://localhost:5000/building/postBuilding/" + postInfo.id, {
+        title: postInfo.title,
+        location: postInfo.location,
+        date: postInfo.date,
+        time: postInfo.time,
+        description: postInfo.desc,
       });
     },
   },

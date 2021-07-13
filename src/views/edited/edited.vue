@@ -74,14 +74,17 @@ export default {
       this.time = value;
     },
     editPost() {
+      var postInfo = {
+        id: this.id,
+        title: this.title,
+        location: this.location,
+        desc: this.description,
+        time: this.time,
+        date: this.date,
+      };
       this.$store
         .dispatch("editPost", {
-          id: this.id,
-          title: this.title,
-          location: this.location,
-          desc: this.description,
-          time: this.time,
-          date: this.date,
+          postInfo: postInfo,
         })
         .then(this.$router.push("/explore"), this.$router.go());
     },
