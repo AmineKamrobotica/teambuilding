@@ -91,7 +91,6 @@ export default {
   },
   methods: {
     explore(item2) {
-      console.log(item2);
       this.$router.push({ name: "details", params: { details: item2 } });
     },
     delete2(id) {
