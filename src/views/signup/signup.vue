@@ -114,14 +114,6 @@ export default {
   }),
 
   computed: {
-    nameErrors() {
-      const errors = [];
-      if (!this.$v.name.$dirty) return errors;
-      !this.$v.name.maxLength &&
-        errors.push("Name must be at most 10 characters long");
-      !this.$v.name.required && errors.push("Name is required.");
-      return errors;
-    },
     emailErrors() {
       const errors = [];
       if (!this.$v.email.$dirty) return errors;

@@ -38,7 +38,7 @@
             style="margin-left:10px"
             small
             icon
-            color="pink"
+            color="#e63946"
             @click="logOut"
           >
             <v-icon>mdi-logout</v-icon>

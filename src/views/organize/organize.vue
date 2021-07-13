@@ -4,14 +4,14 @@
     <div class="contOrganize">
       <form method="POST" enctype="multipart/formdata">
         <v-text-field
-          prepend-icon=" mdi-pen"
+          prepend-inner-icon=" mdi-pen"
           v-model="title"
           label="Title"
           single-line
           outlined
         ></v-text-field>
         <v-text-field
-          prepend-icon="mdi-map-marker"
+          prepend-inner-icon="mdi-map-marker"
           v-model="location"
           label="Location"
           single-line
@@ -20,7 +20,6 @@
         <input-file @inputFile="images"></input-file>
 
         <v-textarea
-          prepend-icon="mdi-message-processing"
           v-model="description"
           outlined
           name="input-7-4"
@@ -30,10 +29,10 @@
           <v-col md="6" sm="12"><picke-date-time @clicked="logChange"/></v-col>
           <v-col md="6" sm="12"><picke-time @timechange="timeChange"/></v-col>
         </v-row>
+        <v-btn color="#2c699a" class="btnsOrganize" block large @click="change">
+          <v-icon left>mdi-cloud-upload</v-icon> Submit</v-btn
+        >
       </form>
-      <v-btn color="#2c699a" class="btnsOrganize" block x-large @click="change">
-        <v-icon left>mdi-cloud-upload</v-icon> Submit</v-btn
-      >
     </div>
   </v-container>
 </template>

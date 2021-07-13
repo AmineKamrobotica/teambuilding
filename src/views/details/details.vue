@@ -45,7 +45,12 @@
         ></v-textarea
       ></v-col>
       <v-col md="2" sm="12" xs="12"
-        ><v-btn block color="primary" style="position: relative;">
+        ><v-btn
+          block
+          color="primary"
+          style="position: relative;"
+          @click="comments"
+        >
           comments</v-btn
         ></v-col
       >
@@ -72,6 +77,15 @@ export default {
         require("../../assets/images/upload/" + this.detailsData.image[i])
       );
     }
+  },
+  methods: {
+    comments() {
+      if (this.$store.state.token && localStorage.getItem("id")) {
+        console.log("okk");
+      } else {
+        this.$router.push("/login");
+      }
+    },
   },
 };
 </script>
