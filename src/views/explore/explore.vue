@@ -1,13 +1,26 @@
 <template>
   <v-container>
     <h1 class="hExplore">Explore our programms</h1>
+    <v-row class="fill-height" align-content="center" justify="center">
+      <v-col v-if="!show" cols="6">
+        <v-progress-linear
+          color="#0db39e"
+          indeterminate
+          rounded
+          height="6"
+        ></v-progress-linear>
+      </v-col>
+    </v-row>
     <div class="contExplore text-center">
       <v-row>
         <v-col v-for="(item, i) in data" :key="i" cols="12">
-          <card-explore
-            @deleteProgram="deleteProgram"
-            :item="item"
-          ></card-explore>
+          <v-slide-x-transition>
+            <card-explore
+              v-if="show"
+              @deleteProgram="deleteProgram"
+              :item="item"
+            ></card-explore>
+          </v-slide-x-transition>
         </v-col>
       </v-row>
       <confirm-delete
@@ -31,11 +44,19 @@ export default {
     data: [],
     dialog: false,
     id: "",
+    show: false,
   }),
   created() {
-    axios.get("http://localhost:5000/building/").then((res) => {
-      this.data = res.data;
-    });
+    axios
+      .get("http://localhost:5000/building/")
+      .then((res) => {
+        this.data = res.data;
+      })
+      .then(
+        setTimeout(() => {
+          this.show = true;
+        }, 500)
+      );
   },
   methods: {
     disagree() {
