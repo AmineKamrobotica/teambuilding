@@ -10,7 +10,7 @@
         <div>
           <v-card-title class="text-h5" v-text="item.title"></v-card-title>
           <div>
-            <span  style="display: flex;"
+            <span style="display: flex;"
               ><v-icon left> mdi-account</v-icon>
               <h4>publisher : {{ item.owner }}</h4></span
             >
@@ -22,7 +22,7 @@
               ><v-icon left>mdi-calendar</v-icon>
               <h4>date : {{ item.date }}</h4></span
             >
-            <span class="spanExplore"  style="display: flex;"
+            <span class="spanExplore" style="display: flex;"
               ><v-icon left>mdi-timer-sand</v-icon>
               <h4>hour : {{ item.time }}</h4></span
             >
@@ -54,7 +54,7 @@
           <v-btn
             class=""
             @click="delete2(item._id)"
-            color="red"
+            color="#e63946"
             text
             small
             v-if="item.idOwner == idOwner && this.$store.state.token"
@@ -64,6 +64,7 @@
             delete
           </v-btn>
         </div>
+
         <div v-if="this.$store.state.token && this.$store.state.authed">
           <v-btn v-model="voted" @click="check" text icon color="#048ba8">
             <v-icon>mdi-thumb-up</v-icon>
@@ -83,7 +84,13 @@ export default {
     idOwner: localStorage.getItem("id"),
     countUp: Number,
     voted: false,
+    showVote: false,
   }),
+  created() {
+    setTimeout(() => {
+      this.showVote = true;
+    }, 2000);
+  },
   watch: {
     voted: function(val) {
       val ? this.update(++this.item.vote) : this.update(--this.item.vote);
