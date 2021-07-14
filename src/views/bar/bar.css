@@ -44,3 +44,11 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.linkDrawer {
+  color: #0db39e !important;
+  cursor: pointer;
+  margin-right: 20px;
+  font-size: 18px;
+  text-decoration: none;
+}
