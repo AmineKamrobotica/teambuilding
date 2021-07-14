@@ -2,7 +2,7 @@
   <v-container style="margin-top:60px">
     <h1>the last building</h1>
     <v-row style="margin-top:40px">
-      <v-col v-for="n in 3" :key="n" cols="4" md="4" sm="12" xs="12">
+      <v-col v-for="n in 3" :key="n" cols="4" md="4" sm="12" class="hidden-sm-and-down">
         <v-card height="200" flat color="black">
           <v-img class="vcard" height="200px" :src="lastBuild[n - 1].image" />
         </v-card>
