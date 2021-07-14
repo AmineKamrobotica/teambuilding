@@ -48,8 +48,13 @@ export const store = new Vuex.Store({
         this.comments = res.data;
       });
     }, */
-    /* postComment(state,{commentInfo}){
-      axios.post("http://localhost:5000/comments/postComments"+id)
-    } */
+    postComment(state, { commentInfo }) {
+      axios.put("http://localhost:5000/building/comments/" + commentInfo.id, {
+        content: commentInfo.content,
+        idPost: commentInfo.idPost,
+        owner: commentInfo.owner,
+        idOwner: commentInfo.idOwner,
+      });
+    },
   },
 });
