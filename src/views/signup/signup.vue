@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="cont text-center">
+    <div class="cont">
       <form>
         <v-row>
           <v-col md="6">
