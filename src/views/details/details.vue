@@ -11,21 +11,21 @@
     </div>
     <carousel :items="items"></carousel>
     <v-row>
-      <v-col md="5"
+      <v-col md="5" sm="6" xs="12"
         ><h2>description :</h2>
         <p>
           {{ this.detailsData.description }}
         </p></v-col
       >
-      <v-col md="3"
+      <v-col md="3" sm="6" xs="12"
         ><h2>date :</h2>
         <span>{{ this.detailsData.date }}</span></v-col
       >
-      <v-col md="3"
+      <v-col md="3" sm="6" xs="12"
         ><h2>time :</h2>
         <span>{{ this.detailsData.time }}</span></v-col
       >
-      <v-col md="1"
+      <v-col md="1" sm="6" xs="12"
         ><h3>vote :</h3>
         <span>{{ this.detailsData.vote }}</span></v-col
       >
