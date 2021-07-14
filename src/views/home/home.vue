@@ -1,5 +1,15 @@
 <template>
   <v-container class="try">
+    <v-row class="fill-height" align-content="center" justify="center">
+      <v-col v-if="!rightShow" cols="6">
+        <v-progress-linear
+          color="#0db39e"
+          indeterminate
+          rounded
+          height="6"
+        ></v-progress-linear>
+      </v-col>
+    </v-row>
     <v-snackbar
       transition="slide-x-transition"
       :timeout="6000"
@@ -12,48 +22,55 @@
     >
       authentication successfully
     </v-snackbar>
-    <v-row class="all">
-      <v-col md="8" sm="12" xs="12">
-        <p class="intro">
-          Dive in! There are so many things to do here together
-        </p>
-        <p style="font-size: 21px;">
-          Join the official group of proxym's Team Building,
-        </p>
-        <div>
-          <v-btn outlined color="#2c699a" class="btns"
-            ><router-link
-              :to="this.$store.state.token ? '/organize' : '/login'"
-              class="linkOrganize"
-            >
-              <v-icon dark small left>mdi-gavel</v-icon>Organize</router-link
-            ></v-btn
-          >
 
-          <v-btn
-            color="#2c699a"
-            elevation="0"
-            style="color: white; margin-left:10px"
-            class="btns"
-          >
-            <router-link
-              to="/explore"
-              style="text-decoration: none; color: white"
+    <v-row class="all">
+      <v-slide-y-transition>
+        <v-col v-if="rightShow" md="8" sm="12" xs="12">
+          <p class="intro">
+            Dive in! There are so many things to do here together
+          </p>
+          <p style="font-size: 21px;">
+            Join the official group of proxym's Team Building,
+          </p>
+          <div>
+            <v-btn outlined color="#2c699a" class="btns"
+              ><router-link
+                :to="this.$store.state.token ? '/organize' : '/login'"
+                class="linkOrganize"
+              >
+                <v-icon dark small left>mdi-gavel</v-icon>Organize</router-link
+              ></v-btn
             >
-              <v-icon dark left small>
-                mdi-arrow-right
-              </v-icon>
-              explore
-            </router-link>
-          </v-btn>
-        </div>
-      </v-col>
-      <v-col md="4" sm="12" xs="12" class="hidden-sm-and-down">
+
+            <v-btn
+              color="#2c699a"
+              elevation="0"
+              style="color: white; margin-left:10px"
+              class="btns"
+            >
+              <router-link
+                to="/explore"
+                style="text-decoration: none; color: white"
+              >
+                <v-icon dark left small>
+                  mdi-arrow-right
+                </v-icon>
+                explore
+              </router-link>
+            </v-btn>
+          </div>
+        </v-col>
+      </v-slide-y-transition>
+      <v-col v-if="leftShow" md="4" sm="12" xs="12" class="hidden-sm-and-down">
         <v-img src="../../assets/images/home.png" />
       </v-col>
     </v-row>
-    <build-passed />
-    <Carousel :items="items" style="margin-top:30px" />
+    <v-scroll-y-transition>
+      <build-passed v-if="remainShow" />
+    </v-scroll-y-transition>
+    <v-scroll-y-transition>
+      <Carousel v-if="remainShow" :items="items" style="margin-top:30px" />
+    </v-scroll-y-transition>
   </v-container>
 </template>
 <style scoped>
@@ -68,6 +85,9 @@ export default {
     Carousel,
   },
   data: () => ({
+    remainShow: false,
+    rightShow: false,
+    leftShow: false,
     snackbar: false,
     items: [
       require("./images/image2.jpg"),
@@ -83,6 +103,16 @@ export default {
     if (this.$route.params.userAuthed) {
       this.snackbar = true;
     }
+
+    setTimeout(() => {
+      this.rightShow = true;
+    }, 500);
+    setTimeout(() => {
+      this.leftShow = true;
+    }, 800);
+    setTimeout(() => {
+      this.remainShow = true;
+    }, 1000);
   },
   methods: {},
 };
