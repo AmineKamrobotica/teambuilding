@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 const addBuilding = require("../models/addBuilding");
+const Comments = require("../models/comments");
 const multer = require("multer");
 const moment = require("moment");
 // const checkAuth = require("../middleware/check_auth");
@@ -59,6 +60,7 @@ router.post("/postBuilding", upload, async (req, res) => {
   await addbuild.save();
   res.send(addbuild);
 });
+//delete post building
 router.delete("/:id", async (req, res) => {
   const addbuild = await addBuilding.findByIdAndRemove(req.params.id);
 
@@ -73,7 +75,7 @@ router.get("/location/:location", async (req, res) => {
   if (!location) return res.status(404).send("The distination not found.");
   res.send(location);
 });
-
+//update vote value
 router.put("/vote/:id", async (req, res) => {
   const vote = await addBuilding.findByIdAndUpdate(req.params.id, {
     vote: req.body.vote,
@@ -83,6 +85,7 @@ router.put("/vote/:id", async (req, res) => {
     return res.status(404).send("The genre with the given ID was not found.");
   res.send(vote);
 });
+//update post building details values
 router.put("/postBuilding/:id", async (req, res) => {
   const postBuilding = await addBuilding.findByIdAndUpdate(req.params.id, {
     time: req.body.time,
@@ -95,6 +98,27 @@ router.put("/postBuilding/:id", async (req, res) => {
   if (!postBuilding)
     return res.status(404).send("The genre with the given ID was not found.");
   res.send(postBuilding);
+});
+
+//comments
+router.put("/comments/:id", async (req, res) => {
+  const timeElapsed = Date.now();
+  const today = moment(timeElapsed).format("dddd, MMMM Do YYYY, h:mm:ss a");
+  let comment = new Comments({
+    content: req.body.content,
+    timeOfPublich: today,
+    idPost: req.body.idPost,
+    owner: req.body.owner,
+    idOwner: req.body.idOwner,
+  });
+  const post = await addBuilding.findByIdAndUpdate(
+    { _id: req.params.id },
+    { $push: { comments: comment } }
+  );
+
+  if (!post)
+    return res.status(404).send("The genre with the given ID was not found.");
+  res.send(post);
 });
 
 module.exports = router;
