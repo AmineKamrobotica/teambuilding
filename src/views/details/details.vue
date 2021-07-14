@@ -19,10 +19,8 @@
 
 <script>
 import carousel from "../carousel/Carousel.vue";
-
 import Comments from "./comments.vue";
 import DetailsInfos from "./detailsInfo.vue";
-
 import CommentsArea from "./CommentsArea.vue";
 export default {
   props: {},
@@ -49,6 +47,8 @@ export default {
         require("../../assets/images/upload/" + this.detailsData.image[i])
       );
     }
+
+
   },
   methods: {
     comments(value) {
