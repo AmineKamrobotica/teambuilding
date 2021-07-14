@@ -1,78 +1,48 @@
 <template>
-  <v-container grid-list-xs>
-    <div
-      style="    display: flex;
-    justify-content: space-between;
-    justify-items: center;
-    justify-self: center; "
-    >
-      <h2>details of the programme</h2>
-      <v-icon color="pink">mdi-home</v-icon>
-    </div>
-    <carousel :items="items"></carousel>
-    <v-row>
-      <v-col md="5" sm="6" xs="12"
-        ><h2>description :</h2>
-        <p>
-          {{ this.detailsData.description }}
-        </p></v-col
-      >
-      <v-col md="3" sm="6" xs="12"
-        ><h2>date :</h2>
-        <span>{{ this.detailsData.date }}</span></v-col
-      >
-      <v-col md="3" sm="6" xs="12"
-        ><h2>time :</h2>
-        <span>{{ this.detailsData.time }}</span></v-col
-      >
-      <v-col md="1" sm="6" xs="12"
-        ><h3>vote :</h3>
-        <span>{{ this.detailsData.vote }}</span></v-col
-      >
-    </v-row>
+  <v-main>
+    <v-container grid-list-xs>
+      <div class="divStyle">
+        <h2>details of the programme</h2>
+        <v-icon color="pink">mdi-home</v-icon>
+      </div>
+      <carousel :items="items"></carousel>
+      <details-infos :infos="detailsData"></details-infos>
 
-    <v-divider></v-divider>
-    <h3>comments</h3>
-    <v-divider></v-divider>
-    <v-row style="margin: 5px">
-      <v-col md="10" sm="12" xs="12">
-        <v-textarea
-          v-model="comment"
-          filled
-          outlined
-          dense
-          height="85px"
-          label="your comment"
-        ></v-textarea
-      ></v-col>
-      <v-col md="2" sm="12" xs="12"
-        ><v-btn
-          block
-          color="primary"
-          style="position: relative;"
-          @click="comments"
-        >
-          comments</v-btn
-        ></v-col
-      >
-    </v-row>
-  </v-container>
+      <v-divider></v-divider>
+      <h3>comments</h3>
+      <v-divider></v-divider>
+      <comments-area @clicked="comments"></comments-area>
+      <comments :comments="commentsOfThePost"></comments>
+    </v-container>
+  </v-main>
 </template>
 
 <script>
 import carousel from "../carousel/Carousel.vue";
+
+import Comments from "./comments.vue";
+import DetailsInfos from "./detailsInfo.vue";
+
+import CommentsArea from "./CommentsArea.vue";
 export default {
   props: {},
   components: {
     carousel,
+    DetailsInfos,
+    Comments,
+
+    CommentsArea,
   },
   data: () => ({
     detailsData: [],
     items: [],
     comment: "",
+    commentsOfThePost: [],
   }),
   created() {
     this.detailsData = this.$route.params.details;
+
+    this.commentsOfThePost = this.detailsData.comments;
 
     for (let i = 0; i < this.detailsData.image.length; i++) {
       this.items.push(
@@ -81,16 +51,16 @@ export default {
     }
   },
   methods: {
-    comments() {
+    comments(value) {
       if (this.$store.state.token && localStorage.getItem("id")) {
-        /* var comentInfo = {
+        var comentInfo = {
           id: this.detailsData._id,
-          content: this.comment,
-          idPost: this.detailsData.idOwner,
-          owner: this.detailsData.owner,
-          idOwner: this.detailsData.idOwner,
+          content: value,
+          idPost: this.detailsData._id,
+          owner: this.$store.state.username,
+          idOwner: localStorage.getItem("id"),
         };
-        this.$store.dispatch("getCommentsPost", { id: this.detailsData._id }); */
+        this.$store.dispatch("postComment", { commentInfo: comentInfo });
       } else {
         this.$router.push("/login");
       }
@@ -98,3 +68,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import url("./details.css");
+</style>
