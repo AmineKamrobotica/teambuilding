@@ -12,6 +12,15 @@ export const store = new Vuex.Store({
     userData: [],
     id: "",
     comments: [],
+    drawer: false,
+    links: [
+      { name: "sign up", link: "/signup" },
+      { name: "log in", link: "/login" },
+    ],
+    afterauth: [
+      { name: "Organize", link: "/organize" },
+      { name: "memories", link: "#" },
+    ],
   },
   mutations: {},
   actions: {
