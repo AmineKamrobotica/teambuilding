@@ -38,6 +38,10 @@ const buildingSchema = new mongoose.Schema({
     required: true,
   },
   vote: { type: Number, required: false },
+  comments: {
+    type: Array,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("addBuilding", buildingSchema);
