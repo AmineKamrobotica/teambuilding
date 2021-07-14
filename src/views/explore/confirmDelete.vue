@@ -8,10 +8,10 @@
         <v-card-text>Are you sure you want to delete this program</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="disagree">
+          <v-btn color="#e63946" text @click="disagree">
             no
           </v-btn>
-          <v-btn color="green darken-1" text @click="agree">
+          <v-btn color="#16db93" text @click="agree">
             yes
           </v-btn>
         </v-card-actions>
