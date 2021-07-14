@@ -48,11 +48,8 @@
           </v-btn>
         </div>
       </v-col>
-      <v-col md="4" sm="12" xs="12">
-        <v-img
-          class="d-none d-md-block"
-          src="../../assets/images/home.png"
-        />
+      <v-col md="4" sm="12" xs="12" class="hidden-sm-and-down">
+        <v-img src="../../assets/images/home.png" />
       </v-col>
     </v-row>
     <build-passed />
