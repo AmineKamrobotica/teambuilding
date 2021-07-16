@@ -2,9 +2,16 @@
   <v-container style="margin-top:60px">
     <h1>the last building</h1>
     <v-row style="margin-top:40px">
-      <v-col v-for="n in 3" :key="n" cols="4" md="4" sm="12" class="hidden-sm-and-down">
-        <v-card height="200" flat color="black">
-          <v-img class="vcard" height="200px" :src="lastBuild[n - 1].image" />
+      <v-col
+        v-for="(item, n) in lastBuild"
+        :key="n"
+        cols="4"
+        md="4"
+        sm="12"
+        xs="12"
+      >
+        <v-card height="200" flat color="white">
+          <v-img class="vcard" height="200px" :src="item.image" />
         </v-card>
         <span class="explorebtn"> details</span>
       </v-col>
@@ -18,19 +25,23 @@
 </template>
 <script>
 export default {
+  props: {
+    lastData: [],
+  },
   data: () => ({
     lastBuild: [
       {
-        image: require("../../assets/images/360x200.jpg"),
+        image: require("../../assets/images/upload/image5.jpg"),
       },
       {
-        image: require("../../assets/images/360x200.jpg"),
+        image: require("../../assets/images/upload/image2.jpg"),
       },
       {
-        image: require("../../assets/images/360x200.jpg"),
+        image: require("../../assets/images/upload/image3.jpg"),
       },
     ],
   }),
+  methods: {},
 };
 </script>
 <style scoped>
