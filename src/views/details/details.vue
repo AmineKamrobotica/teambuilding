@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import carousel from "../carousel/Carousel.vue";
 import Comments from "./comments.vue";
 import DetailsInfos from "./detailsInfo.vue";
@@ -47,8 +48,10 @@ export default {
         require("../../assets/images/upload/" + this.detailsData.image[i])
       );
     }
-
-
+    //this.getComments();
+    setInterval(() => {
+      this.getComments();
+    }, 1000);
   },
   methods: {
     comments(value) {
@@ -64,6 +67,13 @@ export default {
       } else {
         this.$router.push("/login");
       }
+    },
+    getComments() {
+      axios
+        .get("http://localhost:5000/building/" + this.detailsData._id)
+        .then((res) => {
+          this.commentsOfThePost = res.data.comments;
+        });
     },
   },
 };
