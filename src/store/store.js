@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    data: [],
     authed: false,
     token: "",
     username: "",
@@ -24,6 +25,11 @@ export const store = new Vuex.Store({
   },
   mutations: {},
   actions: {
+    getAllBuilding() {
+      axios.get("http://localhost:5000/building/").then((res) => {
+        this.state.data = res.data;
+      });
+    },
     deleteItem(state, { id }) {
       axios.delete("http://localhost:5000/building/" + id).then(() => {
         console.log("hello dispatch");
