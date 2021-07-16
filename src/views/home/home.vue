@@ -66,7 +66,7 @@
       </v-col>
     </v-row>
     <v-scroll-y-transition>
-      <build-passed v-if="remainShow" />
+      <build-passed :lastData="imageLast" v-if="remainShow" />
     </v-scroll-y-transition>
     <v-scroll-y-transition>
       <Carousel v-if="remainShow" :items="items" style="margin-top:30px" />
@@ -90,14 +90,15 @@ export default {
     leftShow: false,
     snackbar: false,
     items: [
-      require("./images/image2.jpg"),
-
       require("./images/image3.jpg"),
+      require("./images/image2.jpg"),
 
       require("./images/image5.jpg"),
 
       require("./images/image6.jpg"),
     ],
+    lastData: [],
+    imageLast: [],
   }),
   created() {
     if (this.$route.params.userAuthed) {
@@ -112,8 +113,19 @@ export default {
     }, 800);
     setTimeout(() => {
       this.remainShow = true;
-    }, 1000);
+    }, 2000);
   },
-  methods: {},
+  methods: {
+    getLastBuilding() {
+      this.$store.dispatch("getAllBuilding").then(() => {
+        this.lastData = this.$store.state.data.splice(-3);
+        for (let i = 0; i < this.lastData.length; i++) {
+          this.imageLast.push(
+            require("../../assets/images/upload/" + this.lastData[i].image[0])
+          );
+        }
+      });
+    },
+  },
 };
 </script>
