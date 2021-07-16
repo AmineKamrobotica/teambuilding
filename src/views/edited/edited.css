@@ -1,8 +1,13 @@
 .contEdited {
-    width: 50%;
+    
     margin: auto;
     position: relative;
 
+}
+@media (min-width : 1160px) {
+    .contEdited {
+        width: 50%;
+    }
 }
 
 .btnsEdited span {
