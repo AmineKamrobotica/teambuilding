@@ -26,8 +26,8 @@
           label="description"
         ></v-textarea>
         <v-row>
-          <v-col md="6" sm="12"><picke-date-time @clicked="logChange"/></v-col>
-          <v-col md="6" sm="12"><picke-time @timechange="timeChange"/></v-col>
+          <v-col md="6" xs="12" sm="12"><picke-date-time @clicked="logChange"/></v-col>
+          <v-col md="6" xs="12" sm="12"><picke-time @timechange="timeChange"/></v-col>
         </v-row>
         <v-btn color="#2c699a" class="btnsOrganize" block large @click="change">
           <v-icon left>mdi-cloud-upload</v-icon> Submit</v-btn
