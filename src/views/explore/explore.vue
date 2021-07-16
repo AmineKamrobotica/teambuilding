@@ -13,7 +13,11 @@
     </v-row>
     <div class="contExplore text-center">
       <v-row>
-        <v-col v-for="(item, i) in data" :key="i" cols="12">
+        <v-col
+          v-for="(item, i) in this.$store.state.data"
+          :key="i"
+          cols="12"
+        >
           <v-slide-x-transition>
             <card-explore
               v-if="show"
@@ -32,7 +36,7 @@
   </v-container>
 </template>
 <script>
-import axios from "axios";
+//import axios from "axios";
 import cardExplore from "./cardExplore.vue";
 import confirmDelete from "./confirmDelete.vue";
 export default {
@@ -47,16 +51,11 @@ export default {
     show: false,
   }),
   created() {
-    axios
-      .get("http://localhost:5000/building/")
-      .then((res) => {
-        this.data = res.data;
-      })
-      .then(
-        setTimeout(() => {
-          this.show = true;
-        }, 500)
-      );
+    this.$store.dispatch("getAllBuilding").then(() => {
+      setTimeout(() => {
+        this.show = true;
+      }, 500);
+    });
   },
   methods: {
     disagree() {
