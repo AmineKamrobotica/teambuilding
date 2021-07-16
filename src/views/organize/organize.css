@@ -1,8 +1,14 @@
 .contOrganize {
-    width: 50%;
+
     margin: auto;
     position: relative;
 
+}
+
+@media (min-width : 1160px) {
+    .contOrganize {
+        width: 50%;
+    }
 }
 
 .btnsOrganize span {
@@ -13,7 +19,7 @@
 }
 
 .hOrganize {
-    
+
     text-align: center;
     margin-bottom: 70px;
 }
