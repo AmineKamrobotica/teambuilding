@@ -22,6 +22,7 @@ export const store = new Vuex.Store({
       { name: "Organize", link: "/organize" },
       { name: "memories", link: "#" },
     ],
+    notifications: 0,
   },
   mutations: {},
   actions: {
