@@ -6,46 +6,17 @@
         <v-spacer></v-spacer>
 
         <span class="d-none d-md-flex" style="display: flex;">
-          <router-link to="/" class="link" style="">home </router-link>
-          <span
-            style="display: flex;"
-            v-if="!this.$store.state.token && !this.$store.state.authed"
-          >
-            <router-link
-              v-for="(link, index) in this.$store.state.links"
-              :key="index"
-              class="link"
-              :to="link.link"
-            >
-              {{ link.name }}
-            </router-link>
-          </span>
-          <span
-            style="display: flex;"
+          <main-bar
             v-if="this.$store.state.token && this.$store.state.authed"
-          >
-            <router-link
-              v-for="(link, index) in this.$store.state.afterauth"
-              :key="index + 100"
-              class="link"
-              :to="link.link"
-            >
-              {{ link.name }}
-            </router-link>
-            <router-link to="#" class="linkUser">{{
-              this.$store.state.username
-            }}</router-link>
-            <v-btn
-              style="margin-left:10px"
-              small
-              icon
-              color="#e63946"
-              @click="logOut"
-            >
-              <v-icon>mdi-logout</v-icon>
-            </v-btn>
-          </span>
+          ></main-bar>
         </span>
+        <v-spacer></v-spacer>
+        <before-auth
+          v-if="!this.$store.state.token && !this.$store.state.authed"
+        ></before-auth>
+        <after-auth
+          v-if="this.$store.state.token && this.$store.state.authed"
+        ></after-auth>
       </v-container>
       <v-app-bar-nav-icon
         color="#0db39e"
@@ -58,17 +29,19 @@
 </template>
 <script>
 import navigationDrawer from "./navigationDrawer.vue";
+import afterAuth from "./afterAuth.vue";
+import beforeAuth from "./beforeAuth.vue";
+import mainBar from "./mainBar.vue";
 export default {
   components: {
     navigationDrawer,
+    afterAuth,
+    beforeAuth,
+    mainBar,
   },
   data: () => ({}),
 
   methods: {
-    logOut() {
-      localStorage.removeItem("id");
-      this.$router.go(0);
-    },
     toggle() {
       this.$store.state.drawer = !this.$store.state.drawer;
     },
