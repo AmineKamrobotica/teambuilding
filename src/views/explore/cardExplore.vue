@@ -2,29 +2,29 @@
   <div>
     <v-card>
       <div class="d-flex flex-no-wrap">
-        <v-avatar class="ma-3" size="180" tile>
+        <v-avatar class="ma-3" size="100" tile>
           <v-img
             :src="require('../../assets/images/upload/' + `${item.image[0]}`)"
           ></v-img>
         </v-avatar>
         <div>
           <v-card-title class="text-h5" v-text="item.title"></v-card-title>
-          <div>
+          <div style="display: flex;">
             <span style="display: flex;"
               ><v-icon left> mdi-account</v-icon>
-              <h4>publisher : {{ item.owner }}</h4></span
-            >
-            <span class="spanExplore" style="display: flex;"
+              <span>publisher : {{ item.owner }}</span></span
+            >||
+            <span style="display: flex;"
               ><v-icon left> mdi-map-marker</v-icon>
-              <h4>location : {{ item.location }}</h4></span
-            >
-            <span class="spanExplore" style="display: flex;"
+              <span style="margin-right: 10px">location : {{ item.location }}</span></span
+            >||
+            <span style="display: flex;"
               ><v-icon left>mdi-calendar</v-icon>
-              <h4>date : {{ item.date }}</h4></span
-            >
-            <span class="spanExplore" style="display: flex;"
+              <span>date : {{ item.date }}</span></span
+            >||
+            <span style="display: flex;"
               ><v-icon left>mdi-timer-sand</v-icon>
-              <h4>hour : {{ item.time }}</h4></span
+              <span>hour : {{ item.time }}</span></span
             >
           </div>
         </div>
