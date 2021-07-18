@@ -3,7 +3,9 @@
     <v-container grid-list-xs>
       <div class="divStyle">
         <h2>details of the programme</h2>
-        <v-icon color="pink">mdi-home</v-icon>
+       <v-btn color="#0db39e" icon dark>
+          <v-icon> mdi-chevron-down</v-icon>
+        </v-btn>
       </div>
       <carousel :items="items"></carousel>
       <details-infos :infos="detailsData"></details-infos>
