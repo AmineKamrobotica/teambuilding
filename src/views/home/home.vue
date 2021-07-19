@@ -10,18 +10,6 @@
         ></v-progress-linear>
       </v-col>
     </v-row>
-    <v-snackbar
-      transition="slide-x-transition"
-      :timeout="6000"
-      v-model="snackbar"
-      absolute
-      top
-      color="success"
-      outlined
-      right
-    >
-      authentication successfully
-    </v-snackbar>
 
     <v-row class="all">
       <v-slide-y-transition>
@@ -101,9 +89,7 @@ export default {
     imageLast: [],
   }),
   created() {
-    if (this.$route.params.userAuthed) {
-      this.snackbar = true;
-    }
+    
 
     setTimeout(() => {
       this.rightShow = true;
