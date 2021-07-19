@@ -1,8 +1,5 @@
 <template>
-  <span
-    style="display: flex;"
-    
-  >
+  <span style="display: flex;">
     <router-link to="/" class="link" style="">home </router-link>
 
     <router-link
@@ -13,15 +10,15 @@
     >
       {{ link.name }}
     </router-link>
-    <v-badge
-      :content="this.$store.state.notifications"
-      :value="this.$store.state.notifications"
-      color="green"
-      overlap
-    >
-      <v-icon>
-        mdi-bell-outline
-      </v-icon>
-    </v-badge>
+    <natification-icon></natification-icon>
   </span>
 </template>
+
+<script>
+import natificationIcon from "../notifications/notificationIcon.vue";
+export default {
+  components: {
+    natificationIcon,
+  },
+};
+</script>
