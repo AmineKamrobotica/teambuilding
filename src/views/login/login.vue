@@ -133,11 +133,10 @@ export default {
             setTimeout(() => {
               this.$router.go(0);
             }, 500);
-            this.$router.push({ name: "Home", params: { userAuthed: true } });
+            this.$router.push({ name: "Home" });
 
             //this.$store.state.userData = res.data.user;
-          })
-          .errors((this.alert = true));
+          });
       } else {
         this.alert = true;
       }
