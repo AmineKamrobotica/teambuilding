@@ -13,9 +13,11 @@
         <v-spacer></v-spacer>
         <before-auth
           v-if="!this.$store.state.token && !this.$store.state.authed"
+          class="hidden-md-and-down"
         ></before-auth>
         <after-auth
           v-if="this.$store.state.token && this.$store.state.authed"
+          class="hidden-md-and-down"
         ></after-auth>
       </v-container>
       <v-app-bar-nav-icon
