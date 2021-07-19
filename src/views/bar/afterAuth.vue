@@ -28,19 +28,27 @@
 
         <v-list>
           <v-list-item>
-            <v-list-item-action>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-action>
-            <v-list-item-title>profil</v-list-item-title>
+            <v-list-item-content class="menuSpan">
+              <v-list-item-action>
+                <v-list-item-title>
+                  <span
+                    ><v-icon left>mdi-account</v-icon> profil
+                  </span></v-list-item-title
+                >
+              </v-list-item-action>
+            </v-list-item-content>
           </v-list-item>
-
           <v-list-item>
-            <v-list-item-action>
-              <v-btn small icon color="#e63946" @click="logOut">
-                <v-icon>mdi-logout</v-icon>
-              </v-btn>
-            </v-list-item-action>
-            <v-list-item-title> log out</v-list-item-title>
+            <v-list-item-content class="menuSpan">
+              <v-list-item-action>
+                <v-list-item-title>
+                  <span @click="logOut">
+                    <v-icon>mdi-logout</v-icon>
+                    log out
+                  </span>
+                </v-list-item-title>
+              </v-list-item-action>
+            </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-card>
@@ -60,3 +68,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+.menuSpan {
+  padding: 0 !important;
+}
+.menuSpan:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+</style>
