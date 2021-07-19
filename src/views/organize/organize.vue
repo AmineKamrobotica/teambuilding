@@ -26,11 +26,18 @@
           label="description"
         ></v-textarea>
         <v-row>
-          <v-col md="6" xs="12" sm="12"><picke-date-time @clicked="logChange"/></v-col>
-          <v-col md="6" xs="12" sm="12"><picke-time @timechange="timeChange"/></v-col>
+          <v-col md="6" xs="12" sm="12"
+            ><picke-date-time @clicked="logChange"
+          /></v-col>
+          <v-col md="6" xs="12" sm="12"
+            ><picke-time @timechange="timeChange"
+          /></v-col>
         </v-row>
         <v-btn color="#2c699a" class="btnsOrganize" block large @click="change">
           <v-icon left>mdi-cloud-upload</v-icon> Submit</v-btn
+        >
+        <v-btn color="#2c699a" class="btnsOrganize" block large @click="tryIt">
+          <v-icon left>mdi-cloud-upload</v-icon> trydb</v-btn
         >
       </form>
     </div>
@@ -41,6 +48,7 @@ import InputFile from "./inputFile.vue";
 import PickeDateTime from "./picke.vue";
 import PickeTime from "./pickeTime.vue";
 import axios from "axios";
+import firebase from "../../db/firebase";
 export default {
   components: {
     InputFile,
@@ -95,6 +103,26 @@ export default {
       } else {
         this.$router.push("/login");
       }
+    },
+    tryIt() {
+      var database = firebase.database().ref("notifications");
+      var data = {
+        object: "event",
+        userId: "60e591c2b041ba04cc5c532f",
+        username: "Amine Kammoun",
+        verb: "organize",
+      };
+      database.push(data);
+
+      /* database
+        .get()
+        
+        .then((snapshot) => {
+          snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            console.log(childData);
+          });
+        }); */
     },
   },
 };
