@@ -25,7 +25,7 @@
             :key="index"
           >
             <v-list-item-title
-              ><router-link class="link" :to="link.link">
+              ><router-link class="linkDrawer" :to="link.link">
                 {{ link.name }}
               </router-link></v-list-item-title
             >
