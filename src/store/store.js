@@ -6,18 +6,25 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    //data of all building
     data: [],
+    //check authentication state
     authed: false,
+    //token authentications
     token: "",
+    //username profil
     username: "",
     userData: [],
     id: "",
     comments: [],
+    //drawer responsive
     drawer: false,
+    // links befor auth
     links: [
       { name: "sign up", link: "/signup" },
       { name: "log in", link: "/login" },
     ],
+    // links after auth
     afterauth: [
       { name: "Organize", link: "/organize" },
       { name: "memories", link: "#" },
@@ -26,6 +33,7 @@ export const store = new Vuex.Store({
   },
   mutations: {},
   actions: {
+    // in the explore view 
     getAllBuilding() {
       axios.get("http://localhost:5000/building/").then((res) => {
         this.state.data = res.data;
