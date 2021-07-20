@@ -1,15 +1,21 @@
 <template>
   <span style="display: flex;">
+    <v-avatar class="avatarStyle" color="#0db39e">
+      <span class="white--text text-h6">{{
+        this.$store.state.username[0].toUpperCase()
+      }}</span>
+    </v-avatar>
     <v-menu
       v-model="menu"
       :close-on-content-click="false"
       :nudge-width="200"
       offset-y
+      rounded="large"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="#0db39e" icon dark v-bind="attrs" v-on="on">
+        <span class="spanmdi" v-bind="attrs" v-on="on">
           <v-icon> mdi-chevron-down</v-icon>
-        </v-btn>
+        </span>
       </template>
 
       <v-card>
