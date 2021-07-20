@@ -52,3 +52,15 @@
   font-size: 18px;
   text-decoration: none;
 }
+
+.avatarStyle {
+  height: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important;
+  margin-top: 7px !important;
+  margin-right: 5px;
+}
+
+.spanmdi {
+  margin-top: 7px !important;
+}
