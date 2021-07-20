@@ -36,9 +36,9 @@
         <v-btn color="#2c699a" class="btnsOrganize" block large @click="change">
           <v-icon left>mdi-cloud-upload</v-icon> Submit</v-btn
         >
-        <v-btn color="#2c699a" class="btnsOrganize" block large @click="tryIt">
+        <!-- <v-btn color="#2c699a" class="btnsOrganize" block large @click="updateNotification">
           <v-icon left>mdi-cloud-upload</v-icon> trydb</v-btn
-        >
+        > -->
       </form>
     </div>
   </v-container>
@@ -49,6 +49,7 @@ import PickeDateTime from "./picke.vue";
 import PickeTime from "./pickeTime.vue";
 import axios from "axios";
 import firebase from "../../db/firebase";
+import moment from "moment";
 export default {
   components: {
     InputFile,
@@ -97,6 +98,7 @@ export default {
         axios
           .post("http://localhost:5000/building/postBuilding", formData)
           .then(this.$router.push("/explore"), this.$router.go(0))
+          .then(this.updateNotification())
           .catch((err) => {
             console.log(err);
           });
@@ -104,12 +106,15 @@ export default {
         this.$router.push("/login");
       }
     },
-    tryIt() {
+    updateNotification() {
+      const timeElapsed = Date.now();
+      const today = moment(timeElapsed).format("MMMM Do YYYY, HH:mm");
       var database = firebase.database().ref("notifications");
       var data = {
-        object: "event",
-        userId: "60e591c2b041ba04cc5c532f",
-        username: "Amine Kammoun",
+        timeNotificaiton: today,
+        object: `<span class="text--primary">${this.$store.state.username}</span> &mdash; added new event `,
+        userId: localStorage.getItem("id"),
+        username: this.$store.state.username,
         verb: "organize",
       };
       database.push(data);
