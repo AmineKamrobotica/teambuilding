@@ -1,12 +1,15 @@
 <template>
   <div>
-    <v-app-bar app color="white" hide-on-scroll>
+    <v-app-bar app color="white">
       <v-container class="py-0 fill-height">
-        <span class="logo">proxyfy</span>
+        <router-link to="/"
+          ><img src="../../assets/images/new_logo-removebg-preview (1).png" height="40px"
+        /></router-link>
         <v-spacer></v-spacer>
 
-        <span class="d-none d-md-flex" style="display: flex;">
+        <span class="d-none d-md-flex">
           <main-bar
+          style="margin-top:10px"
             v-if="this.$store.state.token && this.$store.state.authed"
           ></main-bar>
         </span>
