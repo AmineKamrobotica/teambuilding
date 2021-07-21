@@ -88,36 +88,6 @@ export default {
         })
         .then(this.$router.push("/explore"), this.$router.go());
     },
-    /* images(value) {
-      this.files = value;
-    }, */
-    /* change() {
-      if (this.$store.state.token) {
-        var formData = new FormData();
-        formData.append("title", this.title);
-        formData.append("location", this.location);
-        formData.append("description", this.description);
-        formData.append("date", this.date);
-        formData.append("time", this.time);
-        formData.append("owner", this.$store.state.username);
-        formData.append("idOwner", localStorage.getItem("id"));
-        formData.append("vote", this.vote);
-        for (let i = 0; i < this.files.length; i++) {
-          formData.append("image", this.files[i]);
-        }
-
-        axios
-          .post("http://localhost:5000/building/postBuilding", formData)
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        this.$router.push("/login");
-      }
-    }, */
   },
 };
 </script>
