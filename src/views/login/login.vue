@@ -139,8 +139,6 @@ export default {
               this.$router.go(0);
             }, 500);
             this.$router.push({ name: "Home" });
-
-            //this.$store.state.userData = res.data.user;
           });
       } else {
         this.alert = true;
