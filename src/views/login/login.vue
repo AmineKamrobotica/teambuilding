@@ -13,7 +13,7 @@
       {{ this.$route.params.success }}
     </v-snackbar>
     <v-container>
-      <div class="cont text-center">
+      <div class="cont">
         <form>
           <v-text-field
             outlined
@@ -60,6 +60,11 @@
             </v-btn>
           </template>
         </v-snackbar>
+        <v-divider></v-divider>
+        <p style="margin-top: 10px">
+          by login, you agree to our
+          <b>Term,data Policy and cookies Policy</b>
+        </p>
       </div>
     </v-container>
   </v-main>
