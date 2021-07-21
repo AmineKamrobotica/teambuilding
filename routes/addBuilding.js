@@ -33,7 +33,6 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage }).array("image");
 
 router.post("/postBuilding", upload, async (req, res) => {
-  console.log(req.file);
   const timeElapsed = Date.now();
   const today = moment(timeElapsed).format("dddd, MMMM Do YYYY, h:mm:ss a");
 
@@ -53,8 +52,6 @@ router.post("/postBuilding", upload, async (req, res) => {
     req.files.forEach((files) => {
       path.push(files.filename);
     });
-    console.log("path is " + path);
-
     addbuild.image = path;
   }
   await addbuild.save();
