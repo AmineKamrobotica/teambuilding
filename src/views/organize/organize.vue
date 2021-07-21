@@ -36,9 +36,6 @@
         <v-btn color="#2c699a" class="btnsOrganize" block large @click="change">
           <v-icon left>mdi-cloud-upload</v-icon> Submit</v-btn
         >
-        <!-- <v-btn color="#2c699a" class="btnsOrganize" block large @click="updateNotification">
-          <v-icon left>mdi-cloud-upload</v-icon> trydb</v-btn
-        > -->
       </form>
     </div>
   </v-container>
@@ -93,8 +90,6 @@ export default {
         for (let i = 0; i < this.files.length; i++) {
           formData.append("image", this.files[i]);
         }
-        /* formData.append("image", this.files[0]);
-      formData.append("image", this.files[1]); */
         axios
           .post("http://localhost:5000/building/postBuilding", formData)
           .then(this.$router.push("/explore"), this.$router.go(0))
