@@ -50,7 +50,7 @@ export default {
         require("../../assets/images/upload/" + this.detailsData.image[i])
       );
     }
-    //this.getComments();
+  
     setInterval(() => {
       this.getComments();
     }, 1000);
