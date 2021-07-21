@@ -74,7 +74,6 @@ router.post("/login", (req, res, next) => {
               expiresIn: "1h",
             }
           );
-          // let profilFilter = _.filter(user, (item) => item !== "password");
           return res.status(200).json({
             message: "auth successful",
             token: token,
