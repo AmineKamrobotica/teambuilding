@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <v-carousel hide-delimiters dark show-arrows-on-hover height="400px">
+    <v-carousel
+      
+      delimiter-icon="mdi-minus"
+      dark
+      height="400px"
+    >
       <v-carousel-item
         style="min-width: 100%;
     max-width: 100%;
@@ -20,9 +25,7 @@ export default {
     items: [],
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
 };
 </script>
