@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
   next();
 });
 mongoose
-  .connect("mongodb://localhost/teambuilding", {
+  .connect(process.env.MONGOURI || "mongodb://localhost/teambuilding", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,

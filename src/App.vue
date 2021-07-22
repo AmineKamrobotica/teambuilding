@@ -22,7 +22,7 @@ export default {
     if (localStorage.getItem("id")) {
       this.$store.state.authed = true;
       axios
-        .get("http://localhost:5000/user/" + localStorage.getItem("id"))
+        .get("user/" + localStorage.getItem("id"))
         .then((res) => {
           this.$store.state.token = res.data.token;
           this.$store.state.username = res.data.name + " " + res.data.lastName;
