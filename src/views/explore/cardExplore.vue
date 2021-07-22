@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card outlined>
       <div class="d-flex flex-no-wrap">
         <v-avatar class="ma-3" size="100" tile>
           <v-img
