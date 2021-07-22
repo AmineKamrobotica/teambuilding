@@ -62,7 +62,7 @@
         </v-snackbar>
         <v-divider></v-divider>
         <p style="margin-top: 10px">
-          by login, you agree to our
+          <span style="color: grey">by login, you agree to our </span>
           <b>Term,data Policy and cookies Policy</b>
         </p>
       </div>
@@ -129,12 +129,9 @@ export default {
           })
           .then((res) => {
             localStorage.setItem("id", res.data.user._id);
-            axios.put(
-              "user/token/" + localStorage.getItem("id"),
-              {
-                token: res.data.token,
-              }
-            );
+            axios.put("user/token/" + localStorage.getItem("id"), {
+              token: res.data.token,
+            });
             setTimeout(() => {
               this.$router.go(0);
             }, 500);
