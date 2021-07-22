@@ -11,7 +11,7 @@
         xs="12"
       >
         <v-card height="200" flat color="white">
-          <v-img class="vcard" height="200px" :src="item.image" />
+          <v-img class="vcard" height="200px" :src="require('../../assets/images/upload' + `${item.image[n]}`)" />
         </v-card>
         <span class="explorebtn"> details</span>
       </v-col>
