@@ -91,7 +91,7 @@ export default {
           formData.append("image", this.files[i]);
         }
         axios
-          .post("http://localhost:5000/building/postBuilding", formData)
+          .post("building/postBuilding", formData)
           .then(this.$router.push("/explore"), this.$router.go(0))
           .then(this.updateNotification())
           .catch((err) => {
