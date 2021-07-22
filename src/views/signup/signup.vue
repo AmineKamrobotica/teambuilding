@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="cont">
+    <div class="contSignup">
       <form>
         <v-row>
           <v-col md="6">
@@ -162,3 +162,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import "./signup.css";
+</style>

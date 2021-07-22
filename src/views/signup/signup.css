@@ -1,0 +1,11 @@
+.contSignup {
+    margin: auto;
+    position: relative;
+    top: 100px
+}
+
+@media (min-width : 1160px) {
+    .contSignup {
+        width: 50%;
+    }
+}
