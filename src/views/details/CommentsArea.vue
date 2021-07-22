@@ -30,6 +30,7 @@ export default {
   methods: {
     comments() {
       this.$emit("clicked", this.comment);
+      this.comment = "";
     },
   },
 };

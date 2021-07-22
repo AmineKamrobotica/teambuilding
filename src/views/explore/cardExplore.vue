@@ -7,27 +7,25 @@
             :src="require('../../assets/images/upload/' + `${item.image[0]}`)"
           ></v-img>
         </v-avatar>
-        <div>
-          <v-card-title class="text-h5" v-text="item.title"></v-card-title>
-          <div style="display: flex;">
-            <span style="display: flex;"
-              ><v-icon left> mdi-account</v-icon>
-              <span>publisher : {{ item.owner }}</span></span
-            >||
-            <span style="display: flex;"
-              ><v-icon left> mdi-map-marker</v-icon>
-              <span style="margin-right: 10px">location : {{ item.location }}</span></span
-            >||
-            <span style="display: flex;"
-              ><v-icon left>mdi-calendar</v-icon>
-              <span>date : {{ item.date }}</span></span
-            >||
-            <span style="display: flex;"
-              ><v-icon left>mdi-timer-sand</v-icon>
-              <span>hour : {{ item.time }}</span></span
-            >
-          </div>
-        </div>
+        <v-list-item three-line style="text-align: left;">
+          <v-list-item-content>
+            <v-list-item-title style="font-size: 25px;">{{
+              item.title
+            }}</v-list-item-title>
+            <v-list-item-subtitle>
+              <span
+                style="font-size: 17px;
+    font-weight: bold;"
+                >{{ item.owner }}</span
+              >
+              . <span>{{ item.date }} . {{ item.time }}</span>
+            </v-list-item-subtitle>
+            <v-list-item-title>
+              <v-icon left small> mdi-map-marker</v-icon>
+              <span>location : {{ item.location }}</span>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </div>
       <v-divider></v-divider>
       <v-card-actions class="d-flex flex-no-wrap justify-space-between">
