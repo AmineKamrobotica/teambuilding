@@ -1,39 +1,37 @@
 <template>
-  <v-container>
-    <h1 class="hExplore">Explore our programms</h1>
-    <v-row class="fill-height" align-content="center" justify="center">
-      <v-col v-if="!show" cols="6">
-        <v-progress-linear
-          color="#0db39e"
-          indeterminate
-          rounded
-          height="6"
-        ></v-progress-linear>
-      </v-col>
-    </v-row>
-    <div class="contExplore text-center">
-      <v-row>
-        <v-col
-          v-for="(item, i) in this.$store.state.data"
-          :key="i"
-          cols="12"
-        >
-          <v-slide-x-transition>
-            <card-explore
-              v-if="show"
-              @deleteProgram="deleteProgram"
-              :item="item"
-            ></card-explore>
-          </v-slide-x-transition>
+  <v-main class="grey-bg-color">
+    <v-container>
+      <h1 class="hExplore">Explore our programms</h1>
+      <v-row class="fill-height" align-content="center" justify="center">
+        <v-col v-if="!show" cols="6">
+          <v-progress-linear
+            color="#0db39e"
+            indeterminate
+            rounded
+            height="6"
+          ></v-progress-linear>
         </v-col>
       </v-row>
-      <confirm-delete
-        :dialog="dialog"
-        @disagree="disagree"
-        @agree="agree"
-      ></confirm-delete>
-    </div>
-  </v-container>
+      <div class="contExplore text-center">
+        <v-row>
+          <v-col v-for="(item, i) in this.$store.state.data" :key="i" cols="12">
+            <v-slide-x-transition>
+              <card-explore
+                v-if="show"
+                @deleteProgram="deleteProgram"
+                :item="item"
+              ></card-explore>
+            </v-slide-x-transition>
+          </v-col>
+        </v-row>
+        <confirm-delete
+          :dialog="dialog"
+          @disagree="disagree"
+          @agree="agree"
+        ></confirm-delete>
+      </div>
+    </v-container>
+  </v-main>
 </template>
 <script>
 //import axios from "axios";
