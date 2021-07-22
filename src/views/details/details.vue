@@ -72,7 +72,7 @@ export default {
     },
     getComments() {
       axios
-        .get("http://localhost:5000/building/" + this.detailsData._id)
+        .get("building/" + this.detailsData._id)
         .then((res) => {
           this.commentsOfThePost = res.data.comments;
         });

@@ -53,7 +53,7 @@ export default {
   }),
   created() {
     axios
-      .get("http://localhost:5000/building/" + this.$route.params.id)
+      .get("building/" + this.$route.params.id)
       .then((res) => {
         (this.id = this.$route.params.id),
           (this.date = res.data.date),

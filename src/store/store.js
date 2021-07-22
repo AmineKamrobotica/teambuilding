@@ -35,22 +35,22 @@ export const store = new Vuex.Store({
   actions: {
     // in the explore view 
     getAllBuilding() {
-      axios.get("http://localhost:5000/building/").then((res) => {
+      axios.get("building/").then((res) => {
         this.state.data = res.data;
       });
     },
     deleteItem(state, { id }) {
-      axios.delete("http://localhost:5000/building/" + id).then(() => {
+      axios.delete("building/" + id).then(() => {
         console.log("hello dispatch");
       });
     },
     updateVote(state, { id, voteEdited }) {
-      axios.put("http://localhost:5000/building/vote/" + id, {
+      axios.put("building/vote/" + id, {
         vote: voteEdited,
       });
     },
     editPost(state, { postInfo }) {
-      axios.put("http://localhost:5000/building/postBuilding/" + postInfo.id, {
+      axios.put("building/postBuilding/" + postInfo.id, {
         title: postInfo.title,
         location: postInfo.location,
         date: postInfo.date,
@@ -59,7 +59,7 @@ export const store = new Vuex.Store({
       });
     },
     postComment(state, { commentInfo }) {
-      axios.put("http://localhost:5000/building/comments/" + commentInfo.id, {
+      axios.put("building/comments/" + commentInfo.id, {
         content: commentInfo.content,
         idPost: commentInfo.idPost,
         owner: commentInfo.owner,

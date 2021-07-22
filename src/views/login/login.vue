@@ -123,14 +123,14 @@ export default {
     submit() {
       if (this.email && this.password) {
         axios
-          .post("http://localhost:5000/user/login", {
+          .post("user/login", {
             email: this.email,
             password: this.password,
           })
           .then((res) => {
             localStorage.setItem("id", res.data.user._id);
             axios.put(
-              "http://localhost:5000/user/token/" + localStorage.getItem("id"),
+              "user/token/" + localStorage.getItem("id"),
               {
                 token: res.data.token,
               }
