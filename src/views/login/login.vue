@@ -136,7 +136,8 @@ export default {
               this.$router.go(0);
             }, 500);
             this.$router.push({ name: "Home" });
-          });
+          })
+          .errors((this.alert = true));
       } else {
         this.alert = true;
       }
