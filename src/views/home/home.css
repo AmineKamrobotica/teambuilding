@@ -29,3 +29,62 @@
 {
   margin-top: 80px;
 }
+
+.explorebtn:hover {
+  cursor: pointer;
+}
+
+
+h1 {
+  color: black
+}
+
+.vcard {
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+
+.vcard:hover {
+
+  cursor: pointer;
+  transform: scale(1.02)
+}
+
+.explorebtn {
+  color: #54478c;
+  cursor: pointer;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+.explorebtn:hover {
+  color: #2c699a;
+}
+
+
+.explorebtn:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  background: #2c699a;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.explorebtn:hover:after {
+  width: 20%;
+  left: 0;
+}
+
+.divbtn {
+  margin-top: 60px;
+  justify-items: center;
+}
+
+.btn {
+
+  text-transform: capitalize;
+  font-size: 19px !important;
+}
