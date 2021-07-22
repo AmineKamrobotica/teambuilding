@@ -36,5 +36,10 @@ app.use("/user", apiUser);
 app.use("/building", apiBuilding);
 
 app.use(express.static("./src/assets/images/upload"));
+
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static(__dirname + "/production/"));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + "/production/index.html"));
+}
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
