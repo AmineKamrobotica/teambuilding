@@ -53,9 +53,33 @@
         <v-img src="../../assets/images/home.png" />
       </v-col>
     </v-row>
-    <v-scroll-y-transition>
-      <build-passed :lastData="imageLast" v-if="remainShow" />
-    </v-scroll-y-transition>
+    <div style="margin-top: 100px" v-if="remainShow">
+      <h1>the last building</h1>
+      <v-row style="margin-top:40px">
+        <v-col
+          v-for="(item, n) in lastData"
+          :key="n"
+          cols="4"
+          md="4"
+          sm="12"
+          xs="12"
+        >
+          <v-card height="200" flat color="white">
+            <v-img
+              class="vcard"
+              height="200px"
+              :src="require('../../assets/images/upload/' + `${item.image[0]}`)"
+            />
+          </v-card>
+          <span class="explorebtn" @click="explore(item)"> details</span>
+        </v-col>
+      </v-row>
+      <div class="divbtn text-center">
+        <v-btn color="#0db39e" dark large class="btn">
+          join the outdoors
+        </v-btn>
+      </div>
+    </div>
     <v-scroll-y-transition>
       <Carousel v-if="remainShow" :items="items" style="margin-top:30px" />
     </v-scroll-y-transition>
@@ -65,11 +89,10 @@
 @import "./home.css";
 </style>
 <script>
-import BuildPassed from "../buildingPassed/buildPassed.vue";
 import Carousel from "../carousel/Carousel.vue";
+import axios from "axios";
 export default {
   components: {
-    BuildPassed,
     Carousel,
   },
   data: () => ({
@@ -89,8 +112,10 @@ export default {
     imageLast: [],
   }),
   created() {
-    
-
+    axios.get("building/").then((res) => {
+      this.lastData = res.data.splice(-3);
+      
+    });
     setTimeout(() => {
       this.rightShow = true;
     }, 500);
@@ -102,15 +127,9 @@ export default {
     }, 2000);
   },
   methods: {
-    getLastBuilding() {
-      this.$store.dispatch("getAllBuilding").then(() => {
-        this.lastData = this.$store.state.data.splice(-3);
-        for (let i = 0; i < this.lastData.length; i++) {
-          this.imageLast.push(
-            require("../../assets/images/upload/" + this.lastData[i].image[0])
-          );
-        }
-      });
+    getLastBuilding() {},
+    explore(item2) {
+      this.$router.push({ name: "details", params: { details: item2 } });
     },
   },
 };
