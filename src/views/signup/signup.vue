@@ -134,7 +134,7 @@ export default {
         this.password === this.confirmPassword
       ) {
         axios
-          .post("http://localhost:5000/user/signup", {
+          .post("user/signup", {
             name: this.name,
             lastName: this.lastName,
             email: this.email,
