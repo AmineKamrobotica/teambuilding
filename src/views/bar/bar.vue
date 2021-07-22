@@ -3,30 +3,32 @@
     <v-app-bar app color="white">
       <v-container class="py-0 fill-height">
         <router-link to="/"
-          ><img src="../../assets/images/new_logo-removebg-preview (1).png" height="40px"
+          ><img
+            src="../../assets/images/new_logo-removebg-preview (1).png"
+            height="40px"
         /></router-link>
         <v-spacer></v-spacer>
 
-        <span class="d-none d-md-flex">
+        <span class="d-none d-sm-flex">
           <main-bar
-          style="margin-top:10px"
+            style="margin-top:10px"
             v-if="this.$store.state.token && this.$store.state.authed"
           ></main-bar>
         </span>
         <v-spacer></v-spacer>
         <before-auth
           v-if="!this.$store.state.token && !this.$store.state.authed"
-          class="hidden-md-and-down"
+          class="hidden-sm-and-down"
         ></before-auth>
         <after-auth
           v-if="this.$store.state.token && this.$store.state.authed"
-          class="hidden-md-and-down"
+          class=" hidden-sm-and-down "
         ></after-auth>
       </v-container>
       <v-app-bar-nav-icon
         color="#0db39e"
         @click="toggle"
-        class="hidden-md-and-up"
+        class="hidden-sm-and-up"
       ></v-app-bar-nav-icon>
     </v-app-bar>
     <navigation-drawer></navigation-drawer>
