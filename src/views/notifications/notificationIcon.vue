@@ -1,6 +1,6 @@
 <template>
   <span style="cursor: pointer" icon>
-    <v-menu  offset-y>
+    <v-menu offset-y>
       <template scrollable v-slot:activator="{ on, attrs }">
         <span @click="badge = false" dark v-bind="attrs" v-on="on">
           <v-badge v-model="badge" dot>
@@ -46,9 +46,8 @@ export default {
     var database = firebase.database().ref("notifications");
     database.on("child_added", (snapshot) => {
       this.items.push(snapshot.val());
-      console.log(1);
+
       this.badge = true;
-      console.log(this.items);
     });
   },
 };
