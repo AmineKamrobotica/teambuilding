@@ -1,7 +1,7 @@
 <template>
   <v-main class="grey-bg-color">
+    <h1 class="hExplore">Explore our programms</h1>
     <v-container>
-      <h1 class="hExplore">Explore our programms</h1>
       <v-row class="fill-height" align-content="center" justify="center">
         <v-col v-if="!show" cols="6">
           <v-progress-linear
