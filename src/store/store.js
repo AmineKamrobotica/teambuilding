@@ -27,7 +27,7 @@ export const store = new Vuex.Store({
     // links after auth
     afterauth: [
       { name: "Organize", link: "/organize" },
-      { name: "memories", link: "#" },
+      { name: "memories", link: "/memories" },
     ],
     notifications: 0,
   },

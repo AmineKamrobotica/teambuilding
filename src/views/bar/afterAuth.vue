@@ -1,5 +1,5 @@
 <template>
-  <span style="display: flex;">
+  <div>
     <v-avatar class="avatarStyle" color="#0db39e">
       <span class="white--text text-h6">{{
         this.$store.state.username[0].toUpperCase()
@@ -18,48 +18,48 @@
         </span>
       </template>
 
-      <v-card>
-        <v-list>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>{{
-                this.$store.state.username
-              }}</v-list-item-title>
-              <v-list-item-subtitle>proxymien</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+      <v-list>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>{{
+              this.$store.state.username
+            }}</v-list-item-title>
+            <v-list-item-subtitle>proxymien</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
-        <v-divider></v-divider>
+      <v-divider></v-divider>
 
-        <v-list>
-          <v-list-item>
-            <v-list-item-content class="menuSpan">
-              <v-list-item-action>
-                <v-list-item-title>
+      <v-list>
+        <v-list-item>
+          <v-list-item-content class="menuSpan">
+            <v-list-item-action>
+              <v-list-item-title>
+                <router-link class="linkProfil" to="/profil">
                   <span
                     ><v-icon left>mdi-account</v-icon> profil
-                  </span></v-list-item-title
-                >
-              </v-list-item-action>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content class="menuSpan">
-              <v-list-item-action>
-                <v-list-item-title>
-                  <span @click="logOut">
-                    <v-icon>mdi-logout</v-icon>
-                    log out
-                  </span>
-                </v-list-item-title>
-              </v-list-item-action>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-card>
+                  </span></router-link
+                ></v-list-item-title
+              >
+            </v-list-item-action>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content class="menuSpan">
+            <v-list-item-action>
+              <v-list-item-title>
+                <span style="color: #0db39e !important; " @click="logOut">
+                  <v-icon left>mdi-logout</v-icon>
+                  log out
+                </span>
+              </v-list-item-title>
+            </v-list-item-action>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-menu>
-  </span>
+  </div>
 </template>
 <script>
 export default {

@@ -64,3 +64,8 @@
 .spanmdi {
   margin-top: 7px !important;
 }
+
+.linkProfil {
+  text-decoration: none;
+  color: #0db39e !important;
+}
