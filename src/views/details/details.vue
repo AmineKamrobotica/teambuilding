@@ -3,7 +3,7 @@
     <v-container grid-list-xs>
       <div class="divStyle">
         <h2>details of the programme</h2>
-       <v-btn color="#0db39e" icon dark>
+        <v-btn color="#0db39e" icon dark>
           <v-icon> mdi-chevron-down</v-icon>
         </v-btn>
       </div>
@@ -11,10 +11,12 @@
       <details-infos :infos="detailsData"></details-infos>
 
       <v-divider></v-divider>
-      <h3>comments</h3>
+      <h3 style="margin-left:10px">comments</h3>
       <v-divider></v-divider>
-      <comments-area @clicked="comments"></comments-area>
-      <comments :comments="commentsOfThePost"></comments>
+      <v-card outlined style="margin-top: 10px"> 
+        <comments-area @clicked="comments"></comments-area>
+        <comments :comments="commentsOfThePost"></comments>
+      </v-card>
     </v-container>
   </v-main>
 </template>
@@ -50,7 +52,7 @@ export default {
         require("../../assets/images/upload/" + this.detailsData.image[i])
       );
     }
-  
+
     setInterval(() => {
       this.getComments();
     }, 1000);
@@ -71,11 +73,9 @@ export default {
       }
     },
     getComments() {
-      axios
-        .get("building/" + this.detailsData._id)
-        .then((res) => {
-          this.commentsOfThePost = res.data.comments;
-        });
+      axios.get("building/" + this.detailsData._id).then((res) => {
+        this.commentsOfThePost = res.data.comments;
+      });
     },
   },
 };
