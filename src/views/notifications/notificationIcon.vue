@@ -10,27 +10,32 @@
           </v-badge>
         </span></template
       >
-      <v-list two-line>
-        <v-subheader> Notifications</v-subheader>
-        <v-divider></v-divider>
-        <template v-for="(item, index) in items">
-          <v-list-item :key="index">
-            <v-list-item-avatar>
-              <v-avatar color="#0db39e">
-                <span class="white--text text-h6">{{
-                  item.username[0].toUpperCase()
-                }}</span>
-              </v-avatar>
-            </v-list-item-avatar>
 
-            <v-list-item-content>
-              <v-list-item-title v-html="item.username"></v-list-item-title>
-              <v-list-item-subtitle v-html="item.object"></v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-          <v-divider :key="index + 100"></v-divider>
-        </template>
-      </v-list>
+      <v-card>
+        <v-subheader> Notifications</v-subheader>
+        <v-list two-line style="max-height: 500px" class="overflow-y-auto">
+          <v-divider></v-divider>
+          <template v-for="(item, index) in items">
+            <v-list-item :key="index">
+              <v-list-item-avatar>
+                <v-avatar color="#0db39e">
+                  <span class="white--text text-h6">{{
+                    item.username[0].toUpperCase()
+                  }}</span>
+                </v-avatar>
+              </v-list-item-avatar>
+
+              <v-list-item-content>
+                <v-list-item-title v-html="item.username"></v-list-item-title>
+                <v-list-item-subtitle
+                  v-html="item.object"
+                ></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider :key="index + 100"></v-divider>
+          </template>
+        </v-list>
+      </v-card>
     </v-menu>
   </span>
 </template>
