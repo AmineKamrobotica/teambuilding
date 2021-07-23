@@ -1,5 +1,5 @@
 <template>
-  <v-row style="margin: 5px">
+  <v-row style="margin: 4px">
     <v-col md="10" sm="12" xs="12">
       <v-textarea
         v-model="comment"
