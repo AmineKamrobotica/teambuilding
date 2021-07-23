@@ -2,7 +2,7 @@
   <div>
     <v-card outlined>
       <div class="d-flex flex-no-wrap">
-        <v-avatar class="ma-3" size="100" tile>
+        <v-avatar class="ma-3" size="50" tile>
           <v-img
             :src="require('../../assets/images/upload/' + `${item.image[0]}`)"
           ></v-img>
@@ -14,15 +14,15 @@
             }}</v-list-item-title>
             <v-list-item-subtitle>
               <span
-                style="font-size: 17px;
-    font-weight: bold;"
+                style="font-size: 15px;
+    font-weight: bold; margin-top:0px;"
                 >{{ item.owner }}</span
               >
               . <span>{{ item.date }} . {{ item.time }}</span>
             </v-list-item-subtitle>
-            <v-list-item-title>
+            <v-list-item-title style="margin-top:10px;">
               <v-icon left small> mdi-map-marker</v-icon>
-              <span>location : {{ item.location }}</span>
+              <span >{{ item.location }}</span>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
