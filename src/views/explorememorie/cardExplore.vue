@@ -1,12 +1,14 @@
 <template>
   <div>
     <v-card outlined>
-      <div class="d-flex flex-no-wrap">
-        <v-avatar class="ma-3" size="50" tile>
-          <v-img
-            :src="require('../../assets/images/upload/' + `${item.image[0]}`)"
-          ></v-img>
-        </v-avatar>
+      <div>
+        <v-img
+          aspect-ratio="2.3"
+          contain
+          :src="require('../../assets/images/upload/' + `${item.image[0]}`)"
+        ></v-img>
+
+        <v-divider></v-divider>
         <v-list-item three-line style="text-align: left;">
           <v-list-item-content>
             <v-list-item-title style="font-size: 25px;">{{
@@ -14,7 +16,7 @@
             }}</v-list-item-title>
             <v-list-item-subtitle>
               <span
-                style="font-size: 15px;
+                style="font-size: 12px;
     font-weight: bold; margin-top:0px;"
                 >{{ item.owner }}</span
               >
@@ -38,18 +40,20 @@
           </v-btn>
 
           <v-btn
+            icon
             class=""
             color="#f1c453"
             text
             small
             v-if="item.idOwner == idOwner && this.$store.state.token"
             @click="goToEdit(item._id)"
-            ><v-icon dark small left>
+            ><v-icon dark small>
               mdi-wrench
             </v-icon>
-            edit
           </v-btn>
           <v-btn
+            absolute
+            icon
             class=""
             @click="delete2(item._id)"
             color="#e63946"
@@ -58,8 +62,7 @@
             v-if="item.idOwner == idOwner && this.$store.state.token"
             ref="deleteProgramme"
           >
-            <v-icon dark small left>mdi-delete</v-icon>
-            delete
+            <v-icon dark small>mdi-delete</v-icon>
           </v-btn>
         </div>
       </v-card-actions>
@@ -67,8 +70,11 @@
   </div>
 </template>
 <script>
+//import carousel from '../carousel/Carousel.vue'
 export default {
-  components: {},
+  components: {
+    //carousel
+  },
   props: { item: [] },
   data: () => ({
     dialog: false,

@@ -13,11 +13,21 @@
         </v-col>
       </v-row>
       <div class="contExplore text-center">
-        <v-row>
+        <v-row v-if="show">
+          <v-spacer></v-spacer>
+          <v-btn plain color="primary"
+            ><router-link
+              style="text-decoration: none;
+    text-transform: capitalize;"
+              to="/organize"
+            >
+              add a meeting</router-link
+            ></v-btn
+          >
           <v-col v-for="(item, i) in this.$store.state.data" :key="i" cols="12">
             <v-slide-x-transition>
               <card-explore
-                v-if="show"
+                
                 @deleteProgram="deleteProgram"
                 :item="item"
               ></card-explore>

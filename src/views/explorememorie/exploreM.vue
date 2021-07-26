@@ -1,7 +1,8 @@
 <template>
   <v-main class="grey-bg-color" style="height: 100vh;">
     <h1 class="hExplore">Explore our programms</h1>
-    <v-container>
+
+    <v-container  >
       <v-row class="fill-height" align-content="center" justify="center">
         <v-col v-if="!show" cols="6">
           <v-progress-linear
@@ -13,7 +14,17 @@
         </v-col>
       </v-row>
       <div class="contExplore text-center">
-        <v-row>
+        <v-row v-if="show">
+          <v-spacer></v-spacer>
+          <v-btn plain color="primary"
+            ><router-link
+              style="text-decoration: none;
+    text-transform: capitalize;"
+              to="/memories"
+            >
+              add a memory</router-link
+            ></v-btn
+          >
           <v-col
             v-for="(item, i) in this.$store.state.memories"
             :key="i"
@@ -21,7 +32,6 @@
           >
             <v-slide-x-transition>
               <card-explore
-                v-if="show"
                 @deleteProgram="deleteProgram"
                 :item="item"
               ></card-explore>
