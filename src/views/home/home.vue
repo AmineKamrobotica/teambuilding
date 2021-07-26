@@ -75,9 +75,11 @@
         </v-col>
       </v-row>
       <div class="divbtn text-center">
-        <v-btn color="#0db39e" dark large class="btn">
-          join the outdoors
-        </v-btn>
+        <router-link class="btn" to="/exploreMemories">
+          <v-btn  color="#0db39e" dark large >
+            join the outdoors
+          </v-btn>
+        </router-link>
       </div>
     </div>
     <v-scroll-y-transition>
@@ -114,7 +116,6 @@ export default {
   created() {
     axios.get("building/").then((res) => {
       this.lastData = res.data.splice(-3);
-      
     });
     setTimeout(() => {
       this.rightShow = true;
