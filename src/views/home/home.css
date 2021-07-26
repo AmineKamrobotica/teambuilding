@@ -16,8 +16,6 @@
 
 .btns {
   text-transform: capitalize;
-
-
 }
 
 .linkOrganize {
@@ -25,8 +23,7 @@
   color: #2c699a
 }
 
-.try
-{
+.try {
   margin-top: 80px;
 }
 
@@ -85,6 +82,7 @@ h1 {
 
 .btn {
 
-  text-transform: capitalize;
+  text-transform: capitalize !important;
   font-size: 19px !important;
+  text-decoration: none;
 }
