@@ -37,13 +37,13 @@
               class="btns"
             >
               <router-link
-                to="/explore"
+                :to="this.$store.state.token ? '/memories' : '/login'"
                 style="text-decoration: none; color: white"
               >
                 <v-icon dark left small>
-                  mdi-arrow-right
+                  mdi-plus
                 </v-icon>
-                explore
+                add memories
               </router-link>
             </v-btn>
           </div>
@@ -125,7 +125,7 @@ export default {
     }, 800);
     setTimeout(() => {
       this.remainShow = true;
-    }, 2000);
+    }, 1000);
   },
   methods: {
     getLastBuilding() {},

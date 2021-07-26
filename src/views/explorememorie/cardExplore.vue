@@ -18,7 +18,7 @@
     font-weight: bold; margin-top:0px;"
                 >{{ item.owner }}</span
               >
-              • <span>{{ item.date }} • {{ item.time }}</span>
+              • •
             </v-list-item-subtitle>
             <v-list-item-title style="margin-top:10px;">
               <v-icon left small> mdi-map-marker</v-icon>
@@ -73,8 +73,6 @@ export default {
   data: () => ({
     dialog: false,
     idOwner: localStorage.getItem("id"),
-    
-    
   }),
   created() {
     setTimeout(() => {
@@ -83,12 +81,15 @@ export default {
   },
   methods: {
     explore(item2) {
-      this.$router.push({ name: "details", params: { details: item2 } });
+      this.$router.push({
+        name: "detailsMemories",
+        params: { details: item2 },
+      });
     },
     delete2(id) {
       this.$emit("deleteProgram", id);
     },
-    
+
     goToEdit(id) {
       this.$router.push({ name: "editMemories", params: { id: id } });
     },
