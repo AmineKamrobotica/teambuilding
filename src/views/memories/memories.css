@@ -1,0 +1,29 @@
+.contOrganize {
+
+    margin: auto;
+    position: relative;
+    padding: 10px;
+
+}
+
+@media (min-width : 1160px) {
+    .contOrganize {
+        width: 50%;
+    }
+}
+
+.btnsOrganize span {
+    color: white;
+    text-transform: capitalize;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.hmemories {
+    text-align: center;
+
+}
+
+.container-bg-color {
+    background-color: white;
+}
