@@ -1,0 +1,23 @@
+.contEdited {
+    
+    margin: auto;
+    position: relative;
+
+}
+@media (min-width : 1160px) {
+    .contEdited {
+        width: 50%;
+    }
+}
+
+.btnsEdited span {
+    color: white;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.hEdited {
+    
+    text-align: center;
+    margin-bottom: 70px;
+}
