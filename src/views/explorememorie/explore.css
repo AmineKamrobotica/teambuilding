@@ -1,0 +1,27 @@
+.contExplore {
+    margin-top: 10px !important;
+    width: 70%;
+    margin: auto;
+    position: relative;
+
+}
+
+.v-card--reveal {
+    bottom: 0;
+    opacity: 1 !important;
+    position: absolute;
+    width: 100%;
+}
+
+
+.hExplore {
+    text-align: center;
+}
+
+.spanExplore {
+    margin-top: 10px;
+}
+
+.grey-bg-color{
+    background-color: #fafafa;
+}
