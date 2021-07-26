@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const apiUser = require("./routes/user");
 const apiBuilding = require("./routes/addBuilding");
+const apiMemories = require("./routes/addMemories");
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -34,6 +35,7 @@ app.use(express.json());
 
 app.use("/user", apiUser);
 app.use("/building", apiBuilding);
+app.use("/memories", apiMemories);
 
 app.use(express.static("./src/assets/images/upload"));
 
