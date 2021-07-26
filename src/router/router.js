@@ -11,6 +11,7 @@ import Profil from "../views/profil/profile.vue";
 import Memories from "../views/memories/memories.vue";
 import exploreMemories from "../views/explorememorie/exploreM";
 import editMemories from "../views/editMemorie/edited.vue";
+import detailsMemories from "../views/detailsMemories/details";
 
 Vue.use(VueRouter);
 
@@ -69,6 +70,11 @@ const routes = [
     path: "/editMemories",
     name: "editMemories",
     component: editMemories,
+  },
+  {
+    path: "/detailsMemories",
+    name: "detailsMemories",
+    component: detailsMemories,
   },
 ];
 
