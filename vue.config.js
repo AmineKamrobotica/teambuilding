@@ -4,6 +4,9 @@ module.exports = {
   outputDir: path.resolve(__dirname, "./production"),
   devServer: {
     proxy: {
+      "/memories": {
+        target: "http://localhost:5000/",
+      },
       "/building": {
         target: "http://localhost:5000/",
       },
