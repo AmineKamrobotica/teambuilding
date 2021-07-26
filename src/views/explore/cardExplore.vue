@@ -18,11 +18,11 @@
     font-weight: bold; margin-top:0px;"
                 >{{ item.owner }}</span
               >
-              . <span>{{ item.date }} . {{ item.time }}</span>
+              • <span>{{ item.date }} • {{ item.time }}</span>
             </v-list-item-subtitle>
             <v-list-item-title style="margin-top:10px;">
               <v-icon left small> mdi-map-marker</v-icon>
-              <span >{{ item.location }}</span>
+              <span>{{ item.location }}</span>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
