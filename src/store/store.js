@@ -26,14 +26,15 @@ export const store = new Vuex.Store({
     ],
     // links after auth
     afterauth: [
-      { name: "Organize", link: "/organize" },
-      { name: "memories", link: "/memories" },
+      { name: "meetings", link: "/explore" },
+      { name: "memories", link: "/exploreMemories" },
     ],
     notifications: 0,
+    memories: [],
   },
   mutations: {},
   actions: {
-    // in the explore view 
+    // in the explore view
     getAllBuilding() {
       axios.get("building/").then((res) => {
         this.state.data = res.data;
@@ -64,6 +65,24 @@ export const store = new Vuex.Store({
         idPost: commentInfo.idPost,
         owner: commentInfo.owner,
         idOwner: commentInfo.idOwner,
+      });
+    },
+    getAllMemories() {
+      axios.get("memories/").then((res) => {
+        this.state.memories = res.data;
+      });
+    },
+    deleteMem(state, { id }) {
+      axios.delete("memories/" + id).then(() => {
+        console.log("hello dispatch");
+      });
+    },
+    editMem(state, { memInfo }) {
+      axios.put("memories/postMemorie/" + memInfo.id, {
+        title: memInfo.title,
+        location: memInfo.location,
+
+        description: memInfo.desc,
       });
     },
   },
