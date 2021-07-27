@@ -14,8 +14,8 @@
             }}</v-list-item-title>
             <v-list-item-subtitle>
               <span
-                style="font-size: 15px;
-    font-weight: bold; margin-top:0px;"
+               class="spanUserName"
+                @click="getUser(item.idOwner)"
                 >{{ item.owner }}</span
               >
               • <span>{{ item.date }} • {{ item.time }}</span>
@@ -112,6 +112,10 @@ export default {
     goToEdit(id) {
       this.$router.push({ name: "edit", params: { id: id } });
     },
+    getUser(id){
+      this.$emit("getUser",id)
+
+    }
   },
 };
 </script>
