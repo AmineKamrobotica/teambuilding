@@ -80,9 +80,11 @@ export default {
         this.$router.go();
       });
     },
-    getUser(value){
-      this.$store.dispatch("getUser",{id:value}).then(console.log(this.$store.state.currentUser))
-    }
+    getUser(value) {
+      this.$store
+        .dispatch("getUser", { id: value })
+        .then(console.log(this.$store.state.currentUser));
+    },
   },
 };
 </script>
