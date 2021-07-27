@@ -27,7 +27,7 @@
           <v-col v-for="(item, i) in this.$store.state.data" :key="i" cols="12">
             <v-slide-x-transition>
               <card-explore
-                
+                @getUser="getUser"
                 @deleteProgram="deleteProgram"
                 :item="item"
               ></card-explore>
@@ -80,6 +80,9 @@ export default {
         this.$router.go();
       });
     },
+    getUser(value){
+      this.$store.dispatch("getUser",{id:value}).then(console.log(this.$store.state.currentUser))
+    }
   },
 };
 </script>
