@@ -1,6 +1,15 @@
 <template>
   <v-main class="grey-bg-color">
     <v-container>
+      <v-snackbar top color="#e63946" v-model="alert" :timeout="1500">
+        check your data entred
+
+        <template v-slot:action="{ attrs }">
+          <v-btn color="#1d3557" text v-bind="attrs" @click="alert = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
       <v-card outlined class="contOrganize mx-auto">
         <h1 class="hOrganize">Organize</h1>
         <div>
@@ -72,6 +81,8 @@ export default {
     description: "",
     location: "",
     vote: 0,
+    alert: false,
+
   }),
 
   computed: {},
@@ -88,25 +99,36 @@ export default {
     },
     change() {
       if (this.$store.state.token && localStorage.getItem("id")) {
-        var formData = new FormData();
-        formData.append("title", this.title);
-        formData.append("location", this.location);
-        formData.append("description", this.description);
-        formData.append("date", this.date);
-        formData.append("time", this.time);
-        formData.append("owner", this.$store.state.username);
-        formData.append("idOwner", localStorage.getItem("id"));
-        formData.append("vote", this.vote);
-        for (let i = 0; i < this.files.length; i++) {
-          formData.append("image", this.files[i]);
+        if (
+          this.title == "" ||
+          this.location == "" ||
+          this.description == "" ||
+          this.date == "" ||
+          this.time == "" ||
+          this.files == ""
+        ) {
+          this.alert = true;
+        } else {
+          var formData = new FormData();
+          formData.append("title", this.title);
+          formData.append("location", this.location);
+          formData.append("description", this.description);
+          formData.append("date", this.date);
+          formData.append("time", this.time);
+          formData.append("owner", this.$store.state.username);
+          formData.append("idOwner", localStorage.getItem("id"));
+          formData.append("vote", this.vote);
+          for (let i = 0; i < this.files.length; i++) {
+            formData.append("image", this.files[i]);
+          }
+          axios
+            .post("building/postBuilding", formData)
+            .then(this.updateNotification())
+            .then(this.$router.push("/explore"), this.$router.go(0))
+            .catch((err) => {
+              console.log(err);
+            });
         }
-        axios
-          .post("building/postBuilding", formData)
-          .then(this.$router.push("/explore"), this.$router.go(0))
-          .then(this.updateNotification())
-          .catch((err) => {
-            console.log(err);
-          });
       } else {
         this.$router.push("/login");
       }
