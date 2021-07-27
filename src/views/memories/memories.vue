@@ -98,8 +98,13 @@ export default {
           }
           axios
             .post("memories/postMemorie", formData)
-            .then(this.$router.push("/exploreMemories"), this.$router.go(0))
             .then(this.updateNotification())
+            .then(
+              setTimeout(() => {
+                this.$router.go();
+              }, 1500),
+              this.$router.push("/explore")
+            )
             .catch((err) => {
               console.log(err);
             });
