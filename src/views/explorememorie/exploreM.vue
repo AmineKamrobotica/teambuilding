@@ -1,5 +1,5 @@
 <template>
-  <v-main class="grey-bg-color" style="height: 100vh;">
+  <v-main class="grey-bg-color">
     <h1 class="hExplore">Explore our programms</h1>
 
     <v-container  >
