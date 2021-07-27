@@ -51,7 +51,7 @@ export default {
     var database = firebase.database().ref("notifications");
     database.on("child_added", (snapshot) => {
       this.items.push(snapshot.val());
-
+      this.items.reverse();
       this.badge = true;
     });
   },

@@ -103,7 +103,7 @@ export default {
               setTimeout(() => {
                 this.$router.go();
               }, 1500),
-              this.$router.push("/explore")
+              this.$router.push("/exploreMemories")
             )
             .catch((err) => {
               console.log(err);
