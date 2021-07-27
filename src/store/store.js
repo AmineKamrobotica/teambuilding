@@ -31,6 +31,7 @@ export const store = new Vuex.Store({
     ],
     notifications: 0,
     memories: [],
+    currentUser: [],
   },
   mutations: {},
   actions: {
@@ -85,13 +86,18 @@ export const store = new Vuex.Store({
         description: memInfo.desc,
       });
     },
-    
+
     postCommentMemorie(state, { commentInfo }) {
       axios.put("memories/comments/" + commentInfo.id, {
         content: commentInfo.content,
         idPost: commentInfo.idPost,
         owner: commentInfo.owner,
         idOwner: commentInfo.idOwner,
+      });
+    },
+    getUser(state, { id }) {
+      axios.get("user/" + id).then((res) => {
+        this.state.currentUser = res.data;
       });
     },
   },
