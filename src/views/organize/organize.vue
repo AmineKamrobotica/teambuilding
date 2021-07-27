@@ -122,13 +122,13 @@ export default {
           }
           axios
             .post("building/postBuilding", formData)
+            .then(this.updateNotification())
             .then(
-              this.updateNotification(),
               setTimeout(() => {
                 this.$router.go();
-              }, 1500)
+              }, 1500),
+              this.$router.push("/explore")
             )
-            .then(this.$router.push("/explore"))
             .catch((err) => {
               console.log(err);
             });
@@ -152,7 +152,7 @@ export default {
 
       /* database
         .get()
-        
+
         .then((snapshot) => {
           snapshot.forEach(function(childSnapshot) {
             var childData = childSnapshot.val();
