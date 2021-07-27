@@ -124,7 +124,7 @@ export default {
           axios
             .post("building/postBuilding", formData)
             .then(this.updateNotification())
-            .then(this.$router.push("/explore"), this.$router.go(0))
+            //.then(this.$router.push("/explore"), this.$router.go(0))
             .catch((err) => {
               console.log(err);
             });
