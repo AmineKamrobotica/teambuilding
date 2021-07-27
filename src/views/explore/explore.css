@@ -22,6 +22,17 @@
     margin-top: 10px;
 }
 
-.grey-bg-color{
+.grey-bg-color {
     background-color: #fafafa;
+}
+
+.spanUserName {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 0px;
+}
+.spanUserName:hover{
+    color: blue;
+    cursor: pointer;
+    
 }
